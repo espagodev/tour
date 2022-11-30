@@ -1,0 +1,18 @@
+.pdf-iframe {
+    display: flex;
+    flex-direction: column;
+    height: 75vh;
+    min-height: 0;
+    overflow: hidden;
+}
+
+ .pdf-iframe iframe {
+    flex: 1 1 auto;
+    border: 1px solid #b9c1d1;
+    border-radius: 7px;
+}
+
+.border-top {
+    border-top: 1px solid #efefef !important;
+}
+
