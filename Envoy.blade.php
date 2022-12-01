@@ -1,4 +1,4 @@
-@servers(['aws' => '-i D:\\espagodev\dev.pem ubuntu@ec2-3-131-101-33.us-east-2.compute.amazonaws.com','localhost' => 'lapi.test','lot' => '-i D:\\espagodev\LightsailDefaultKey-eu-west-3.pem ubuntu@15.237.141.99'])
+@servers(['aws' => '-i D:\\espagodev\LightsailDefaultKey-eu-west-3.pem ubuntu@15.237.141.99'])
 {{-- @servers([ 'aws' => ['ubuntu@3.18.107.107']]) --}}
 {{-- envoy run git:clone --on=aws --}}
 {{-- envoy run git:pull --on=aws --}}
@@ -9,19 +9,16 @@
 @include('vendor/autoload.php')
 
 @setup
-//  $origin = 'git remote add origin https://espagodev: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@apiloto.espagodev.com.git';
-//  $origin = 'git remote add origin https://espagodev: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@apiloto.espagodev.com.git';
-    // $origin = 'https://espagodev:Y7323529KespG%40@github.com/espagodev/apiloto.espagodev.com.git';
-    $origin = 'git@github.com:espagodev/apiloto.espagodev.com.git';
+
+    $origin = 'git@github.com:espagodev/tour.git';
     // $origin = 'https://github.com/espagodev/apiloto.espagodev.com.git
     //             Username: espagodev
     //             Password: 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';
     $branch = isset($branch) ? $branch : 'main';
     $app_dir1 = '/var/www';
-    $app_dir = '/var/www/apiloto.espagodev.com';
+    $app_dir = '/var/www/prueba.lotogam.com';
 
-    $app_dir_api = '/var/www/api.lotogam.com';
-    // $app_dir_api = '/var/www/apiprueba.lotogam.com';
+    $app_dir_api = '/var/www/prueba.lotogam.com';
     if ( !isset($on)) {
         throw new Exception('La variable --on no está definida');
     }
@@ -37,11 +34,6 @@
     up
 @endmacro
 
-
-
-@task('test')
-    echo "Prueba Envoy";
-@endtask
 
 @task('git:clone', ['on' => $on])
     cd {{ $app_dir1 }}
@@ -66,7 +58,7 @@
      {{-- sudo git fetch origin
     sudo git reset --hard origin/master  --}}
     sudo git remote remove origin 
-    sudo git remote add origin git@github.com:espagodev/apiloto.espagodev.com.git
+    sudo git remote add origin git@github.com:espagodev/tour.git
     echo "origen actualizado correctamente";
 @endtask
 
