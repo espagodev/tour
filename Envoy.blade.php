@@ -1,6 +1,6 @@
 @servers(['aws' => '-i D:\\espagodev\LightsailDefaultKey-eu-west-3.pem ubuntu@15.237.141.99'])
 {{-- @servers([ 'aws' => ['ubuntu@3.18.107.107']]) --}}
-{{-- envoy run git:clone --on=aws --}}
+{{-- php vendor/bin/envoy run git:clone --on=aws --}}
 {{-- envoy run git:pull --on=aws --}}
 {{-- envoy run lot_pull --on=lot --}}
 {{-- php vendor/bin/envoy run lot_pull --on=lot --}}

@@ -38,7 +38,7 @@ class FirmaController extends Controller
 
         $facturaId = $request->factura_id;
         $factura = Factura::findOrFail($facturaId);
-        $folderPath = public_path('storage\firma/'); // create signatures folder in public directory
+        $folderPath = public_path('storage/firma/'); // create signatures folder in public directory
 
       
         $image_parts = explode(";base64,", $request->fac_firma);        
