@@ -13,6 +13,6 @@ class DashboardController extends Controller
         $date_filters['this_week']['start'] = date('Y-m-d', strtotime('monday this week'));
         $date_filters['this_week']['end'] = date('Y-m-d', strtotime('sunday this week'));
 
-            return view('dashboard.index', compact('date_filters'));
+        return view('dashboard.index', compact('date_filters'));
     }
 }

@@ -11,7 +11,7 @@
                   <li class="breadcrumb-item active">Dashboard</li>
                 </ol>
             </div>
-                 <div class="col-sm-6">
+                 {{-- <div class="col-sm-6">
                 <!-- Bookmark Start-->
                
                     <div class="btn-group btn-group-toggle pull-right" data-toggle="buttons">
@@ -29,14 +29,14 @@
                         </label>
                     </div>
 
-                </div>
+                </div> --}}
                 <!-- Bookmark Ends-->
               </div>
         </div>
     </div>
 <!-- Container-fluid starts-->
 
-    <div class="container-fluid general-widget">
+    {{-- <div class="container-fluid general-widget">
         <div class="row">
             <div class="col-sm-6 col-xl-3 col-lg-6">
                 <div class="card o-hidden border-0">
@@ -87,6 +87,12 @@
                 </div>
             </div>
         </div>
+    </div> --}}
+    <div class="row">
+        <div class="col-sm-12">
+            @include('dashboard.components.table.notas')
+        </div>
+        
     </div>
     <div class="row">
         <div class="col-sm-12">

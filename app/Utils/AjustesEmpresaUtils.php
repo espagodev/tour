@@ -20,6 +20,8 @@ class AjustesEmpresaUtils{
                 'div_separador_decimal',
                 'daf_detalle',
                 'aje_simbolo_moneda',
+                'aje_nombre',
+                'aje_codigo_turismo'
             )
         ->join('time_zone', function ($join)  {
             $join->on('ajustes_empresas.time_zone_id', '=', 'time_zone.id');                            

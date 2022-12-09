@@ -77,18 +77,18 @@
                 <div class="col-md-4">
                     <label class="form-label" for="municipio_id">Ciudad</label>
                     <select class="form-select form-select-sm" name="municipio_id"
-                      id="municipio_id">
+                      id="municipio_id select2">
                       <option selected="" disabled="" value="" required="">Seleccione</option>
                       @foreach ($municipios as $municipio)
                           <option value="{{ $municipio->id }}" {{ $agente->municipio_id == $municipio['id'] ? 'selected=""' : '' }}>{{ $municipio->mun_nombre }}</option>
                       @endforeach
                   </select>
-                    <div class="invalid-feedback">Please provide a valid city.</div>
+                    <div class="invalid-feedback">Please provide a valid city.</div> 
                 </div>
                 <div class="col-md-4">
                     <label class="form-label" for="provincia_id">Provincia</label>
-                    <select class="form-select form-select-sm" name="provincia_id"
-                    id="provincia_id">
+                    <select class="form-select form-select-sm " name="provincia_id"
+                    id="provincia_id select2">
                     <option selected="" disabled="" value="" required="">Seleccione</option>
                     @foreach ($provincias as $provincia)
                           <option value="{{ $provincia->id }}" {{ $agente->provincia_id == $provincia['id'] ? 'selected=""' : '' }}>{{ $provincia->pro_nombre }}</option>

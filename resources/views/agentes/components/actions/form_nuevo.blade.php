@@ -81,7 +81,7 @@
         <div class="row g-3">
             <div class="col-md-4">
                 <label class="form-label" for="municipio_id">Ciudad</label>
-                <select class="form-select form-select-sm" name="municipio_id" id="municipio_id">
+                <select class="form-select form-select-sm select2" name="municipio_id" id="municipio_id">
                     <option selected="" disabled="" value="" required="">Seleccione</option>
                     @foreach ($municipios as $municipio)
                         <option value="{{ $municipio->id }}">{{ $municipio->mun_nombre }}</option>
@@ -91,7 +91,7 @@
             </div>
             <div class="col-md-4">
                 <label class="form-label" for="provincia_id">Provincia</label>
-                <select class="form-select form-select-sm" name="provincia_id" id="provincia_id">
+                <select class="form-select form-select-sm select2" name="provincia_id" id="provincia_id">
                     <option selected="" disabled="" value="" required="">Seleccione</option>
                     @foreach ($provincias as $provincia)
                         <option value="{{ $provincia->id }}">{{ $provincia->pro_nombre }}</option>

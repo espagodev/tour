@@ -38,6 +38,8 @@ class SetSessionData
                 'date_format' => $empresa->daf_detalle,
                 'time_zone' => $empresa->tiz_timezone,
                 'symbol_placement' => $empresa->aje_simbolo_moneda,
+                'aje_codigo_turismo' => $empresa->aje_codigo_turismo,
+                'aje_nombre' => $empresa->aje_nombre,
             ];
 
             $divisa_data = [

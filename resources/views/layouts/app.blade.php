@@ -58,18 +58,7 @@
           <!-- Container-fluid Ends-->
         </div>
         <!-- footer start-->
-        <footer class="footer">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-md-6 footer-copyright">
-                <p class="mb-0">Copyright {{date('Y')}}-{{date('y', strtotime('+1 year'))}} © viho All rights reserved.</p>
-              </div>
-              <div class="col-md-6">
-                <p class="pull-right mb-0">Hand crafted & made with <i class="fa fa-heart font-secondary"></i></p>
-              </div>
-            </div>
-          </div>
-        </footer>
+        @include('layouts.partials.footer')
       </div>
     </div>
     <div class="modal fade view_factura_modal no-print" tabindex="-1" role="dialog"  aria-labelledby="myLargeModalLabel">
