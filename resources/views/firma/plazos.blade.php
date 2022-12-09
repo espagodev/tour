@@ -9,7 +9,7 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">App</li>
                         <li class="breadcrumb-item">Billetes a Plazos</li>
-                        <li class="breadcrumb-item active">Firma {{ $factura->fac_nota_credito }}
+                        <li class="breadcrumb-item active">Firma {{ $billetePlazo->fac_nota_credito }}
                         </li>
                     </ol>
                 </div>

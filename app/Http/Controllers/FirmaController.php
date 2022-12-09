@@ -16,8 +16,8 @@ class FirmaController extends Controller
 
     public function getFirmaPlazo($facturaId)
     {
-        $factura = Factura::findOrFail($facturaId);
-        return view('firma.plazos', compact( 'factura','facturaId'));
+        $billetePlazo = Factura::findOrFail($facturaId);
+        return view('firma.plazos', compact( 'billetePlazo','facturaId'));
     }
 
     public function getFirmaRecibo($facturaId)
