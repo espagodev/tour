@@ -4481,12 +4481,12 @@ S2.define('select2/i18n/en',[],function () {
     inputTooShort: function (args) {
       var remainingChars = args.minimum - args.input.length;
 
-      var message = 'Please enter ' + remainingChars + ' or more characters';
+      var message = 'Por favor escribe ' + remainingChars + ' o más carácteres';
 
       return message;
     },
     loadingMore: function () {
-      return 'Loading more results…';
+      return 'Cargando más resultados…';
     },
     maximumSelected: function (args) {
       var message = 'You can only select ' + args.maximum + ' item';
@@ -4498,10 +4498,10 @@ S2.define('select2/i18n/en',[],function () {
       return message;
     },
     noResults: function () {
-      return 'No results found';
+      return 'No se han encontrado resultados';
     },
     searching: function () {
-      return 'Searching…';
+      return 'Buscando…';
     }
   };
 });

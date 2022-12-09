@@ -3,7 +3,7 @@
         <li><a href="{{ route('getListaPlazos') }}" data-container="body" data-bs-toggle="popover" data-placement="top"
                 title="" data-original-title="Learning"><i data-feather="rotate-ccw"></i></a>
         </li>
-        @if ($billetePlazo->estado_id != 3)
+        @if ($factura->estado_id != 3)
         <li><a href="{{ route('editBilletePlazos', $facturaId) }}" data-container="body" data-bs-toggle="popover" data-placement="top"
             title="" data-original-title="Learning"><i data-feather="edit"></i></a>
         </li>

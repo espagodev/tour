@@ -4,6 +4,8 @@
 {{-- envoy run git:pull --on=aws --}}
 {{-- envoy run lot_pull --on=lot --}}
 {{-- php vendor/bin/envoy run lot_pull --on=lot --}}
+{{-- php vendor/bin/envoy run git:pull --on=aws --}}
+
 {{-- php vendor/bin/envoy run lot_migrate --on=lot --}}
 
 @include('vendor/autoload.php')
