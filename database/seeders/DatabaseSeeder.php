@@ -23,6 +23,9 @@ class DatabaseSeeder extends Seeder
             CarpetaSeeder::class,
             TipoDocumentoSeeder::class,
             AjustesEmpresaSeeder::class,
+            RoleSeeder::class,
+            UserSeeder::class,
+            PaisSeeder::class,
         ]);
     }
 }

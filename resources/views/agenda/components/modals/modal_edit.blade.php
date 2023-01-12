@@ -1,4 +1,4 @@
-<div class="modal-dialog modal-lg">
+<div class="modal-dialog modal-xl">
   <div class="modal-content">
       <div class="modal-header">
           <h4 class="modal-title" id="myLargeModalLabel">Modificar Agenda {{ $agenda->agd_nombres }}</h4>

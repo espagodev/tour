@@ -1,5 +1,33 @@
 <div class="card">
     <div class="card-body">
+        <div>
+            <div class="row invo-header">
+                <div class="col-sm-6">
+                    <div class="media">
+                        <div class="media-body m-l-20">
+                            <h4 class="media-heading f-w-600">
+                                {{-- <label class="form-label">Estado:</label> --}}
+                                @if($billetePlazo->estado_id == '1')
+                                <span class="badge badge-secondary">Pendiente</span>
+                                @elseif ($billetePlazo->estado_id == '2')
+                                <span class="badge badge-warning text-dark">Plazos</span>
+                                @elseif ($billetePlazo->estado_id == '3')
+                                <span class="badge badge-success">Pagada</span>
+                                @endif
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="text-md-end text-xs-center">
+                        <h3><span class="digits counter">{{ $billetePlazo->fac_recibo }}</span></h3>
+                        <p>Fecha de la factura: <span class="digits">{{ $billetePlazo->fac_fecha }}</span><br>Fecha de
+                            vencimiento: <span class="digits">{{ $billetePlazo->fac_fecha_vencimiento }}</span></p>
+                    </div>
+                    <!-- End Title                                 -->
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-6">
                 <label class="form-label">Nombre: </label>
@@ -44,7 +72,7 @@
                 {{ !empty($billetePlazo->agd_email) ? $billetePlazo->agd_email : '' }}
             </div>
             <div class="col-md-6">
-                <label class="form-label" >Carpeta: </label> 
+                <label class="form-label" >Nacionalidad: </label> 
                 {{ !empty($billetePlazo->car_nombre) ? $billetePlazo->car_nombre : '' }}
             </div>
         </div> 
@@ -81,7 +109,7 @@
                 {{  !empty($billetePlazo->bilp_localizador) ?  $billetePlazo->bilp_localizador : '' }}
             </div>
         </div>                 
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-md-6">
                 
             </div>
@@ -95,6 +123,6 @@
                 <span class="badge badge-success">Pagada</span>
                 @endif
             </div>
-        </div>
+        </div> --}}
     </div>
 </div>

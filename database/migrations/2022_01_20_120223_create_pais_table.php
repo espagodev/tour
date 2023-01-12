@@ -17,6 +17,8 @@ class CreatePaisTable extends Migration
             $table->id();
             $table->string('pai_iso');
             $table->string('pai_nombre');
+            $table->string('pai_gentilicio');
+            $table->enum('estado', ['0','1'])->default('0');
             $table->timestamps();
         });
     }

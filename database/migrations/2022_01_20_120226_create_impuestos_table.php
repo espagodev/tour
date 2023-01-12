@@ -17,6 +17,7 @@ class CreateImpuestosTable extends Migration
             $table->id();
             $table->string('imp_nombre')->nullable();
             $table->decimal('imp_valor',8,5)->nullable();
+            $table->enum('estado', ['0','1'])->default('1');
             $table->timestamps();
         });
     }

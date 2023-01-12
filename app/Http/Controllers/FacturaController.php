@@ -10,9 +10,11 @@ use App\Models\Pasajero;
 use App\Utils\AjustesDocumentosUtils;
 use App\Utils\BilletePlazosUtils;
 use App\Utils\ConceptosUtils;
+use App\Utils\DescripcionesUtils;
 use App\Utils\FacturaUtils;
 use App\Utils\movimientoContableUtils;
 use App\Utils\movimientosUtils;
+use App\Utils\PaisUtils;
 use App\Utils\PasajerosUtils;
 use App\Utils\Selects;
 use App\Utils\SubCategoriaUtils;
@@ -48,12 +50,13 @@ class FacturaController extends Controller
 
     public function storeFactura(Request $request)
     {
-       
 
-        $fac_numero = AjustesDocumentosUtils::codigoFactura();            
+
+        $fac_numero = AjustesDocumentosUtils::codigo('1');
+
         $fact = FacturaUtils::generarDocumento($request, $fac_numero, $fac_recibo  = null, $fac_nota_credito  = null);
 
-        AjustesDocumentosUtils::actualizarConteo('1');
+        AjustesDocumentosUtils::conteo('1');
                  
         return redirect()->route('editFactura', ['factura' => $fact->id]);
 
@@ -100,7 +103,7 @@ class FacturaController extends Controller
                         $estado .= '<a class="btn-modal btn btn-outline-success btn-xs" data-container=".view_register_abono"  data-href="'. route('getAbonoFactura', [$row->id]) .'" ><i class="fa fa-dollar"></i></a>';
                     }
                 }
-               
+                    $estado .= '<a href=""  class="btn btn-modal btn-outline-danger btn-xs" data-container=".view_register_abono" data-href="'. route('anularFactura', [$row->id]) .'"><i class="fa fa-minus-square-o"></i> </a>';
                 return $estado;
             })
  
@@ -120,6 +123,9 @@ class FacturaController extends Controller
         $mayoristas = Selects::mayorista();
         $infoFacturas = Selects::infoFacturas();
 
+        $descripciones = DescripcionesUtils::descripciones();
+        $paises = PaisUtils::paises();
+
         $categorias = Selects::categorias();
         $subCategorias = SubCategoriaUtils::sub_categoria($categoria);
 
@@ -127,7 +133,7 @@ class FacturaController extends Controller
         $conceptos = FacturaUtils::facturaConceptos($facturaId);
 
         $empresa = AjustesEmpresa::first();
-        return view('facturas.edit',compact('factura','facturaId','empresa','conceptos', 'opcionesPagos','observaciones','mayoristas','infoFacturas','categorias','impuestos','subCategorias'));
+        return view('facturas.edit',compact('factura','facturaId','empresa','conceptos', 'opcionesPagos','observaciones','mayoristas','infoFacturas','categorias','impuestos','subCategorias','descripciones', 'paises'));
     }
 
     public function updateFactura(Request $request, $facturaId)
@@ -196,6 +202,14 @@ class FacturaController extends Controller
         // dd($billetePlazo);
        
         return view('facturas.expediente',compact('factura','facturaId','abonoClientes','abonoMayoristas','alertas','observaciones'));
+    }
+
+    public function anularFactura($facturaId)
+    {
+        $conceptos = FacturaUtils::facturaConceptos($facturaId);
+
+        $factura = FacturaUtils::facturaEditId($facturaId);
+        return view('facturas.components.modals.modal_factura_anular', compact('factura','conceptos'));
     }
 
     public function getPasajero()

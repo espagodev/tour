@@ -15,8 +15,8 @@ class CreateFacturasTable extends Migration
     {
         Schema::create('facturas', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->references('id')->on('users');
             $table->foreignId('agenda_id')->references('id')->on('agendas'); 
-            $table->foreignId('user_id')->references('id')->on('users');  
             $table->foreignId('observaciones_id')->references('id')->on('observaciones')->nullable();
             $table->foreignId('info_factura_id')->references('id')->on('info_facturas')->nullable();
             $table->foreignId('mayorista_id')->references('id')->on('mayoristas')->nullable();
@@ -32,7 +32,11 @@ class CreateFacturasTable extends Migration
             $table->decimal('fac_total_pendiente', 22, 2)->default(0);
             $table->decimal('fac_total_fee', 22, 2)->default(0);
             $table->decimal('fac_total_descuento', 22, 2)->default(0);
+            $table->decimal('fac_total_impuesto', 22, 2)->default(0);
             $table->enum('fac_tipo_documento', ['1','2','3'])->default('1');
+            $table->date('fac_fecha')->nullable();
+            $table->date('fac_fecha_vencimiento')->nullable();
+
             $table->timestamps();
         });
     }

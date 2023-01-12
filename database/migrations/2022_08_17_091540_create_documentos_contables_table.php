@@ -28,6 +28,8 @@ class CreateDocumentosContablesTable extends Migration
             $table->string('doc_color')->default('#308AF3');
             $table->string('doc_footer')->nullable();
             $table->string('doc_template')->default(1);
+            $table->enum('doc_tipo', ['0','1'])->default('0')->comment('0 -> tipo factura, 1 ->movimiento contable');
+            $table->enum('estado', ['0','1'])->default('1')->comment('0 -> inactivo, 1-> activo');
             $table->timestamps();
         });
     }

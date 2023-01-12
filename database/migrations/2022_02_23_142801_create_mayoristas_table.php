@@ -16,6 +16,7 @@ class CreateMayoristasTable extends Migration
         Schema::create('mayoristas', function (Blueprint $table) {
             $table->id();
             $table->string('may_nombre');
+            $table->enum('estado', ['0','1'])->default('1');
             $table->timestamps();
         });
     }

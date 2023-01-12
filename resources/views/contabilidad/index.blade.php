@@ -8,17 +8,13 @@
                 <div class="col-sm-6">
                     <h3>Contabilidad Interna</h3>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">App</a></li>
+                        <li class="breadcrumb-item">App</li>
                         <li class="breadcrumb-item active">Contablidad</li>
                     </ol>
                 </div>
                 <div class="col-sm-6">
                     <!-- Bookmark Start-->
-                    <div class="bookmark">
-                      <ul>
-                        {{-- <li><a class="btn-modal" href="#" data-container=".view_register" data-href="{{ route('getNuevoMovimiento') }}" data-container="body" data-bs-toggle="popover" data-placement="top" title="" data-original-title="Learning"><i data-feather="plus-square"></i></a></li> --}}
-                      </ul>
-                    </div>
+                   @include('contabilidad.components.misc.opciones-buttons')
                     <!-- Bookmark Ends-->
                   </div>
             </div>
@@ -64,7 +60,7 @@
                     <div class="collapse" id="collapseicon" aria-labelledby="collapseicon" data-bs-parent="#accordionoc">
                       <div class="card-body">
                         <div>
-                            @include('contabilidad.partials.filtro')
+                            @include('contabilidad.components.partials.filtro')
                         </div>
                       </div>
                     </div>

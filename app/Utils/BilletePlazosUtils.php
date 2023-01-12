@@ -81,12 +81,14 @@ class BilletePlazosUtils
                 'facturas.fac_total_pendiente',
                 'facturas.fac_total_descuento',
                 'facturas.fac_total_fee',
+                'facturas.fac_total_impuesto',
                 'facturas.fac_firma',
                 'facturas.estado_id',
+                'facturas.fac_fecha',
+                'facturas.fac_fecha_vencimiento',
                 'agd_direccion',
                 'agd_telefono',
                 'agd_email',
-                'car_nombre',
                 'pai_nombre',
                 'pro_nombre',
                 'mun_nombre',
@@ -118,8 +120,6 @@ class BilletePlazosUtils
                     $join->on('facturas.forma_pago_id', '=', 'forma_pagos.id');
                 })->join('tipo_documentos', function ($join) {
                     $join->on('agendas.tipo_documento_id', '=', 'tipo_documentos.id');
-                }) ->join('carpetas', function ($join) {
-                    $join->on('agendas.carpeta_id', '=', 'carpetas.id');
                 }) ->leftjoin('pais', function ($join) {
                     $join->on('agendas.pais_id', '=', 'pais.id');
                 })  ->leftjoin('provincias', function ($join) {
@@ -141,22 +141,26 @@ class BilletePlazosUtils
         return    $query->first();
     }
 
-    public static function facturaConceptos($Id)
+    public static function facturaConceptos($Id) 
     {
         $query = DB::table('facturas')->select(
             'CON.id',
-            'CON.impuesto_id', 
-            'CON.sub_categoria_id', 
-            'CON.con_descripcion', 
-            'CON.con_cantidad', 
-            'SUBC.subc_nombre', 
-            'CON.con_monto', 
-            'CON.con_fee', 
-            'CON.con_descuento'
+            'CON.impuesto_id',
+            'CON.sub_categoria_id',
+            'CON.con_descripcion',
+            'CON.descripcion_id',
+            'CON.con_cantidad',
+            'SUBC.subc_nombre',
+            'CON.con_monto',
+            'CON.con_fee',
+            'CON.con_descuento',
+            'DESC.des_nombre'
         )->leftjoin('conceptos as CON', function ($join) {
             $join->on('facturas.id', '=', 'CON.factura_id');
-        }) ->leftjoin('sub_categorias AS SUBC', function ($join) {
+        })->leftjoin('sub_categorias AS SUBC', function ($join) {
             $join->on('CON.sub_categoria_id', '=', 'SUBC.id');
+        })->leftjoin('descripciones AS DESC', function ($join) {
+            $join->on('CON.descripcion_id', '=', 'DESC.id');
         }) ->where('facturas.id', $Id);
 
         return    $query->get();
@@ -205,7 +209,6 @@ class BilletePlazosUtils
                 'agd_direccion',
                 'agd_telefono',
                 'agd_email',
-                'car_nombre',
                 'pai_nombre',
                 'pro_nombre',
                 'mun_nombre',
@@ -237,8 +240,6 @@ class BilletePlazosUtils
                     $join->on('facturas.forma_pago_id', '=', 'forma_pagos.id');
                 })->join('tipo_documentos', function ($join) {
                     $join->on('agendas.tipo_documento_id', '=', 'tipo_documentos.id');
-                }) ->join('carpetas', function ($join) {
-                    $join->on('agendas.carpeta_id', '=', 'carpetas.id');
                 }) ->leftjoin('pais', function ($join) {
                     $join->on('agendas.pais_id', '=', 'pais.id');
                 })  ->leftjoin('provincias', function ($join) {

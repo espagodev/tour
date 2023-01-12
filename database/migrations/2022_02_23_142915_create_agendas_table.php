@@ -19,7 +19,6 @@ class CreateAgendasTable extends Migration
             $table->foreignId('pais_id')->references('id')->on('pais');
             $table->foreignId('provincia_id')->references('id')->on('provincias');
             $table->foreignId('municipio_id')->references('id')->on('municipios');
-            $table->foreignId('carpeta_id')->references('id')->on('carpetas');
             $table->foreignId('tipo_documento_id')->references('id')->on('tipo_documentos'); 
             $table->string('agd_nombres');
             $table->string('agd_apellidos');       

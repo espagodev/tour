@@ -88,9 +88,41 @@
             </div>
         </div>
     </div> --}}
+    <div class="container-fluid">
+        <div class="row">
+
+
+
+          <div class="col-lg-6 col-sm-12 box-col-12">
+            <div class="card">
+              <div class="card-header pb-0">
+                <h5>Displaying X Labels Diagonally(Bar Chart)</h5>
+              </div>
+              <div class="card-body chart-block">
+                <div class="flot-chart-container">
+                  <div class="flot-chart-placeholder" id="x-lable-morris-chart"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-sm-12 box-col-12">
+            <div class="card">
+              <div class="card-header pb-0">
+                <h5>Donut Color Chart</h5>
+              </div>
+              <div class="card-body chart-block">
+                <div class="flot-chart-container">
+                  <div class="flot-chart-placeholder" id="donut-color-chart-morris"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     <div class="row">
         <div class="col-sm-12">
-            @include('dashboard.components.table.notas')
+            @include('dashboard.components.table.apuntes')
         </div>
         
     </div>

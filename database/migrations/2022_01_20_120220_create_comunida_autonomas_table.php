@@ -16,6 +16,7 @@ class CreateComunidaAutonomasTable extends Migration
         Schema::create('comunida_autonomas', function (Blueprint $table) {
             $table->id();
             $table->string('ccaa_nombre');
+            $table->enum('estado', ['0','1'])->default('0');
             $table->timestamps();
         });
     }

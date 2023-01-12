@@ -58,7 +58,7 @@ class MovimientoContableController extends Controller
        
         $movimiento = MovimientoContable::create([
 
-            'moc_numero' => AjustesDocumentosUtils::codigoAbonoCliente(),
+            'moc_numero' => AjustesDocumentosUtils::codigo('5'), 
             'billetes_plazos_id' => $request->input('billetes_plazos_id'),
             'factura_id' => $request->input('factura_id'),
             'user_id' => auth()->user()->id,
@@ -70,13 +70,13 @@ class MovimientoContableController extends Controller
 
         ]); 
             
-        AjustesDocumentosUtils::actualizarConteo('4');
+        AjustesDocumentosUtils::conteo('5');
 
         movimientosUtils::guardarMovimiento($request, $request->input('factura_id'), $request->input('moc_monto'), $request->input('billetes_plazos_id'), $movimiento->id);
 
         BilletePlazosUtils::actualizarTotalBilletePlazos($movimiento); 
 
-        FacturaUtils::actulizarAbonoCliente($request->input('factura_id'),$request->input('moc_monto'),$request->input('forma_pago_id'), '3');
+        FacturaUtils::actulizarAbonoCliente($request->input('factura_id'),$request->input('moc_monto'),$request->input('forma_pago_id'), '2');
 
         return redirect()->route('expedienteBilletePlazo', ['factura' => $request->input('factura_id')]);
 
@@ -87,7 +87,7 @@ class MovimientoContableController extends Controller
        
         $movimiento = MovimientoContable::create([
 
-            'moc_numero' => AjustesDocumentosUtils::codigoAbonoCliente(),
+            'moc_numero' => AjustesDocumentosUtils::codigo('5'),
             'billetes_plazos_id' => '',
             'factura_id' => $request->input('factura_id'),
             'user_id' => auth()->user()->id,
@@ -99,7 +99,7 @@ class MovimientoContableController extends Controller
 
         ]);
             
-        AjustesDocumentosUtils::actualizarConteo('4');
+        AjustesDocumentosUtils::conteo('5');
 
         movimientosUtils::guardarMovimiento($request, $request->input('factura_id'), $request->input('moc_monto'),  $movimiento->id, null);
 
@@ -115,7 +115,7 @@ class MovimientoContableController extends Controller
        
         $movimiento = MovimientoContable::create([
 
-            'moc_numero' => AjustesDocumentosUtils::codigoAbonoCliente(),
+            'moc_numero' => AjustesDocumentosUtils::codigo('5'),
             'billetes_plazos_id' => '',
             'factura_id' => $request->input('factura_id'),
             'user_id' => auth()->user()->id,
@@ -127,7 +127,7 @@ class MovimientoContableController extends Controller
 
         ]);
             
-        AjustesDocumentosUtils::actualizarConteo('4');
+        AjustesDocumentosUtils::conteo('5');
 
         movimientosUtils::guardarMovimiento($request, $request->input('factura_id'), $request->input('moc_monto'),  $movimiento->id, null);
 
@@ -143,7 +143,7 @@ class MovimientoContableController extends Controller
        
         $movimiento =   MovimientoContable::create([
 
-            'moc_numero' => AjustesDocumentosUtils::codigoAbonoMayorista(),
+            'moc_numero' => AjustesDocumentosUtils::codigo('7'),
             'billetes_plazos_id' => $request->input('billetes_plazos_id'),
             'factura_id' => $request->input('factura_id'),
             'user_id' => auth()->user()->id,
@@ -153,7 +153,7 @@ class MovimientoContableController extends Controller
             'moc_descripcion' => $request->input('moc_descripcion'),
 
         ]);
-        AjustesDocumentosUtils::actualizarConteo('5');
+        AjustesDocumentosUtils::conteo('7');
 
         BilletePlazosUtils::actualizarTotalMayoristaBilletePlazos($movimiento);
 

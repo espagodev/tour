@@ -15,7 +15,6 @@ class Agenda extends Model
         'pais_id',
         'provincia_id',
         'municipio_id',
-        'carpeta_id',
         'tipo_documento_id',
         'agd_nombres',
         'agd_apellidos',
@@ -28,6 +27,20 @@ class Agenda extends Model
     ];
 
 
+    public function setAgdNombresttribute($valor)
+    {
+        $this->attributes['agd_nombres'] = strtolower($valor);
+    }
+
+    public function setAgdApellidosAttribute($valor)
+    {
+        $this->attributes['agd_apellidos'] = strtolower($valor);
+    }
+
+    public function setAgdDireccionAttribute($valor)
+    {
+        $this->attributes['agd_direccion'] = strtolower($valor);
+    }
     
     public function getAgdNombresAttribute($valor)
     {
@@ -50,9 +63,5 @@ class Agenda extends Model
         return $this->agd_nombres .' '. $this->agd_apellidos;
     }
 
-    public function carpeta()
-    {
-        return $this->hasOne(\App\Models\Carpeta::class,'id','carpeta_id');
-    }
 
 }

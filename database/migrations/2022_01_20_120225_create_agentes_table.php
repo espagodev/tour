@@ -32,7 +32,8 @@ class CreateAgentesTable extends Migration
             $table->string('age_titulo_web_horarios')->nullable();
             $table->string('age_whatsapp')->nullable();
             $table->string('age_estado')->nullable();
-            $table->string('age_firma_digital')->nullable();            
+            $table->string('age_firma_digital')->nullable();     
+            $table->enum('estado', ['0','1'])->default('1');       
             $table->timestamps();
         });
     }

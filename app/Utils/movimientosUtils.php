@@ -15,7 +15,7 @@ class movimientosUtils{
             $total_tarjeta =  $total_abono - $request->input('mov_monto');
 
             $tarjeta = Movimiento::create([
-                'factura_id' => $factura_id,
+                'factura_id' =>  !empty($factura_id) ? $factura_id : 0,
                 'user_id' => auth()->user()->id,
                 'billetes_plazos_id' => !empty($billetes_plazos_id) ? $billetes_plazos_id : 0,
                 'movimiento_contable_id' =>  $movimiento_id,
@@ -28,7 +28,7 @@ class movimientosUtils{
             ]);
 
             $efectivo = Movimiento::create([
-                'factura_id' => $factura_id,
+                'factura_id' => !empty($factura_id) ? $factura_id : 0,
                 'user_id' => auth()->user()->id,
                 'billetes_plazos_id' => !empty($billetes_plazos_id) ? $billetes_plazos_id : 0,
                 'movimiento_contable_id' => $movimiento_id,
@@ -40,8 +40,9 @@ class movimientosUtils{
             ]);
 
         }else{
+            
             $normal = Movimiento::create([
-                'factura_id' => $factura_id,
+                'factura_id' => !empty($factura_id) ? $factura_id : 0,
                 'user_id' => auth()->user()->id,
                 'billetes_plazos_id' => !empty($billetes_plazos_id) ? $billetes_plazos_id : 0,
                 'movimiento_contable_id' => $movimiento_id,

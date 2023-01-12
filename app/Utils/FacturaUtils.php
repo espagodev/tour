@@ -187,10 +187,12 @@ class FacturaUtils
                 'facturas.fac_total_pendiente',
                 'facturas.fac_total_fee',
                 'facturas.fac_total_descuento',
+                'facturas.fac_total_impuesto',
                 'facturas.estado_id',
                 'facturas.fac_firma',
                 'facturas.fac_tipo_documento',
-                'car_nombre',
+                'facturas.fac_fecha',
+                'facturas.fac_fecha_vencimiento',
                 'pai_nombre',
                 'pro_nombre',
                 'mun_nombre',
@@ -218,8 +220,6 @@ class FacturaUtils
                     $join->on('facturas.user_id', '=', 'users.id');
                 })->join('tipo_documentos', function ($join) {
                     $join->on('agendas.tipo_documento_id', '=', 'tipo_documentos.id');
-                }) ->join('carpetas', function ($join) {
-                    $join->on('agendas.carpeta_id', '=', 'carpetas.id');
                 }) ->leftjoin('pais', function ($join) {
                     $join->on('agendas.pais_id', '=', 'pais.id');
                 })  ->leftjoin('provincias', function ($join) {
@@ -244,19 +244,23 @@ class FacturaUtils
             'CON.impuesto_id', 
             'CON.sub_categoria_id', 
             'CON.con_descripcion', 
+            'CON.descripcion_id', 
             'CON.con_cantidad', 
             'SUBC.subc_nombre', 
             'CON.con_monto', 
             'CON.con_fee', 
             'CON.con_descuento',
             'IMP.imp_nombre',
-            'IMP.imp_valor'
+            'IMP.imp_valor',
+            'DESC.des_nombre'
         )->leftjoin('conceptos as CON', function ($join) {
             $join->on('facturas.id', '=', 'CON.factura_id');
         }) ->leftjoin('sub_categorias AS SUBC', function ($join) {
             $join->on('CON.sub_categoria_id', '=', 'SUBC.id');
         }) ->leftjoin('impuestos AS IMP', function ($join) {
             $join->on('CON.impuesto_id', '=', 'IMP.id');
+        }) ->leftjoin('descripciones AS DESC', function ($join) {
+            $join->on('CON.descripcion_id', '=', 'DESC.id');
         })       
         ->where('facturas.id', $Id);
 
@@ -332,7 +336,6 @@ class FacturaUtils
             Factura::where('id', $factura_id)->update(['fac_total_pendiente' => $totalPendiente, 'fac_total_pagado' => $fac_total_pagado]);
         }
 
-       
     }
 
     public static function actulizarUpdateAbonoCliente($factura_id, $total, $forma_pago_id = null, $estado = null) 
@@ -364,6 +367,8 @@ class FacturaUtils
             'user_id' => auth()->user()->id,
             'categoria_id' => $request->input('categoria_id'),  
             'fac_tipo_documento' => $request->input('fac_tipo_documento'),
+            'fac_fecha' => $request->input('fac_fecha'),
+            'fac_fecha_vencimiento' => $request->input('fac_fecha_vencimiento'),
             'estado_id' => '1'            
         ]);
         

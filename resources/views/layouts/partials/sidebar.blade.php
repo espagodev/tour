@@ -22,21 +22,18 @@
                     <li class="back-btn">
                         <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
                       </li>
-                      <li class="sidebar-main-title">
-                        <div>
-                          <h6>General             </h6>
-                        </div>
-                      </li>
+
                     <li class="dropdown">
-                        <li class="dropdown"><a class="nav-link menu-title link-nav" href="{{ route('dashboard') }}"><i data-feather="home"></i><span>Dashboard</span></a></li>
+                        <a class="nav-link menu-title link-nav" href="{{ route('dashboard') }}"><i data-feather="home"></i><span>Dashboard</span></a>
 
                     </li>
                     <li class="sidebar-main-title">
                         <div>
-                          <h6>Administrador             </h6>
+                          <h6>Administrador</h6>
                         </div>
                       </li>
-                      <li class="dropdown"><a class="nav-link menu-title link-nav" href="{{ route('getListaAgentes') }}"><i data-feather="users"></i><span>Agentes</span></a></li>
+                    
+                        <li class="dropdown"><a class="nav-link menu-title link-nav" href="{{ route('getListaAgentes') }}"><i data-feather="users"></i><span>Agentes</span></a></li>
 
                       <li class="dropdown"><a class="nav-link menu-title link-nav" href="{{ route('getDocumentos') }}"><i data-feather="book"></i><span>Documentos Contables</span></a></li>
                       <li class="dropdown"><a class="nav-link menu-title link-nav" href="{{ route('getImpuestos') }}"><i data-feather="sliders"></i><span>Impuestos</span></a></li>
@@ -47,7 +44,26 @@
                       <li class="dropdown"><a class="nav-link menu-title link-nav" href="{{ route('getListaPagos') }}"><i data-feather="box"></i><span>Medios de Pago</span></a></li>
 
                       <li class="dropdown"><a class="nav-link menu-title link-nav" href="{{ route('getListaUsuarios') }}"><i data-feather="users"></i><span>Usuarios</span></a></li>
+                      <li class="dropdown"><a class="nav-link menu-title link-nav" href="{{ route('getListaUsuarios') }}"><i data-feather="users"></i><span>Información Importante</span></a></li>
 
+
+                      <li class="sidebar-main-title">
+                        <div>
+                          <h6>Contabilidad</h6>
+                        </div>
+                      </li>
+                      <li class="dropdown"><a class="nav-link menu-title link-nav" href="{{ route('getListaContabilidad') }}"><i data-feather="dollar-sign"></i><span>Contabilidad</span></a></li>
+                      <li class="dropdown"><a class="nav-link menu-title" href="javascript:void(0)"><i data-feather="list"></i><span>Reportes</span></a>
+                        <ul class="nav-submenu menu-content">
+                          <li><a href="{{ route('reporte.ventas') }}">Ventas</a></li>
+                          <li><a href="{{ route('reporte.movimientos') }}">Movimientos</a></li>
+                          <li><a href="{{ route('reporte.ingresos') }}">Ingresos</a></li>
+                          <li><a href="{{ route('reporte.gastos') }}">Gastos</a></li>
+
+                          {{-- <li><a href="layout-dark.html">Dark</a></li> --}}
+
+                        </ul>
+                      </li>
                       <li class="sidebar-main-title">
                         <div>
                           <h6>Agente             </h6>
@@ -57,7 +73,6 @@
 
                       <li class="dropdown"><a class="nav-link menu-title link-nav" href="{{ route('getListaAgenda') }}"><i data-feather="book"></i><span>Agenda</span></a></li>
 
-                      <li class="dropdown"><a class="nav-link menu-title link-nav" href="{{ route('getListaContabilidad') }}"><i data-feather="dollar-sign"></i><span>Contabilidad</span></a></li>
 
 
                       <li class="dropdown"><a class="nav-link menu-title link-nav" href="{{ route('getListaPlazos') }}"><i data-feather="bar-chart-2"></i><span>Compra a Plazos</span></a></li>
@@ -75,7 +90,7 @@
 
                     <li class="sidebar-main-title">
                         <div>
-                          <h6>Configuración             </h6>
+                          <h6>Configuración</h6>
                         </div>
                       </li>
                     <li class="dropdown">

@@ -7,8 +7,10 @@ use App\Models\Factura;
 use App\Utils\AjustesDocumentosUtils;
 use App\Utils\BilletePlazosUtils;
 use App\Utils\ConceptosUtils;
+use App\Utils\DescripcionesUtils;
 use App\Utils\FacturaUtils;
 use App\Utils\movimientoContableUtils;
+use App\Utils\PaisUtils;
 use App\Utils\PasajerosUtils;
 use App\Utils\ReciboCajaUtils;
 use App\Utils\Selects;
@@ -37,10 +39,10 @@ class ReciboCajaController extends Controller
     {
        
 
-        $fac_recibo = AjustesDocumentosUtils::codigoRecibo();            
+        $fac_recibo = AjustesDocumentosUtils::codigo('4');             
         $fact = ReciboCajaUtils::generarDocumento($request, $fac_numero = null, $fac_recibo, $fac_nota_credito  = null);
 
-        AjustesDocumentosUtils::actualizarConteo('2');
+        AjustesDocumentosUtils::conteo('4');
                  
         return redirect()->route('editReciboCaja', ['factura' => $fact->id]);
 
@@ -102,15 +104,17 @@ class ReciboCajaController extends Controller
     {
         $factura = ReciboCajaUtils::reciboCajaEditId($facturaId);
 
+        $descripciones = DescripcionesUtils::descripciones();
         $observaciones = Selects::observaciones();
         $infoFacturas = Selects::infoFacturas();
         $subCategorias = SubCategoriaUtils::sub_categoria($factura->categoria_id);
 
         $conceptos = ReciboCajaUtils::facturaConceptos($facturaId);
-
+        // $pasajeros = ReciboCajaUtils::facturaPasajeros($facturaId);
+        $paises = PaisUtils::paises();
         $empresa = AjustesEmpresa::first();
-        // dd($factura,$facturaId);
-        return view('recibo_caja.edit',compact('factura','facturaId','empresa', 'observaciones','infoFacturas','subCategorias','conceptos'));
+
+        return view('recibo_caja.edit',compact('factura','facturaId','empresa', 'observaciones','infoFacturas','subCategorias','conceptos','descripciones', 'paises'));
     }
 
     public function updateReciboCaja(Request $request, $facturaId)
@@ -129,8 +133,8 @@ class ReciboCajaController extends Controller
         //     PasajerosUtils::crearPasajero($request, $factura, $facturaId);
 
           // Remover Conceptos 
-        $factura->conceptos()->delete(); 
-
+        $factura->conceptos()->delete();
+        
         $totalConceptos = ConceptosUtils::guardarConceptos($request, $factura, $facturaId); 
         ReciboCajaUtils::actualizarTotalPlazos($facturaId, $totalConceptos);
 

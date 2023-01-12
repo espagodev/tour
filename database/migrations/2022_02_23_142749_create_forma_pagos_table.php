@@ -16,6 +16,7 @@ class CreateFormaPagosTable extends Migration
         Schema::create('forma_pagos', function (Blueprint $table) {
             $table->id();
             $table->string('fop_nombre');
+            $table->enum('estado', ['0','1'])->default('1');
             $table->timestamps();
         });
     }

@@ -6,6 +6,7 @@ use App\Http\Controllers\AjustesBasicosController;
 use App\Http\Controllers\AjustesContablesController;
 use App\Http\Controllers\AjustesDocumentosController;
 use App\Http\Controllers\AjustesEmpresaController;
+use App\Http\Controllers\ApuntesController;
 use App\Http\Controllers\BilletesPlazoController;
 use App\Http\Controllers\BilletesPlazosController;
 use App\Http\Controllers\CarpetaController;
@@ -17,6 +18,7 @@ use App\Http\Controllers\FirmaController;
 use App\Http\Controllers\FormaPagoController;
 use App\Http\Controllers\GastosController;
 use App\Http\Controllers\ImpuestoController;
+use App\Http\Controllers\InfoFacturaController;
 use App\Http\Controllers\IngresosController;
 use App\Http\Controllers\ItinerariosController;
 use App\Http\Controllers\MovimientoAlertaController;
@@ -25,8 +27,10 @@ use App\Http\Controllers\MovimientoController;
 use App\Http\Controllers\MovimientoObservacionesController;
 use App\Http\Controllers\PasajeroController;
 use App\Http\Controllers\PDFController;
+use App\Http\Controllers\PDFReportesController;
 use App\Http\Controllers\ProveedoresController;
 use App\Http\Controllers\ReciboCajaController;
+use App\Http\Controllers\ReportesController;
 use App\Http\Controllers\ServiciosController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SubCategoriaController;
@@ -183,6 +187,8 @@ Route::get('facturas/editFactura/{factura}', [FacturaController::class, 'editFac
 Route::put('facturas/updateFactura/{factura}', [FacturaController::class, 'updateFactura'])->name('updateFactura');
 Route::get('facturas/expedienteFactura/{factura}', [FacturaController::class, 'expedienteFactura'])->name('expedienteFactura');
 Route::get('facturas/viewFactura/{factura}', [FacturaController::class, 'viewFactura'])->name('viewFactura');
+Route::get('facturas/anular/{factura}', [FacturaController::class, 'anularFactura'])->name('anularFactura');
+
 
 
 Route::get('facturas/imprimirFactura/{factura}', [FacturaController::class, 'imprimirFactura'])->name('imprimirFactura');
@@ -304,7 +310,16 @@ Route::put('ajusteContable/updateAjuste/{ajuste}', [AjustesContablesController::
 Route::get('ajusteContable/showAjuste/{ajuste}', [AjustesContablesController::class, 'showAjuste'])->name('showAjuste');
 
 
-//PDF views
+//INFO FACTURAS
+// Route::get('getListaAjustes', [InfoFacturaController::class, 'index'])->name('getListaAjustes');
+// Route::get('ajusteContable/getNuevoAjuste', [InfoFacturaController::class, 'create'])->name('getNuevoAjuste'); 
+// Route::post('ajusteContable', [InfoFacturaController::class, 'store'])->name('storeAjuste'); 
+// Route::get('/ajusteContable/getListadoAjustes', [InfoFacturaController::class, 'getListadoAjustes'])->name('getListadoAjustes');
+// Route::get('ajusteContable/editAjuste/{ajuste}', [InfoFacturaController::class, 'edit'])->name('editAjuste');
+// Route::put('ajusteContable/updateAjuste/{ajuste}', [InfoFacturaController::class, 'update'])->name('updateAjuste');
+// Route::get('ajusteContable/showAjuste/{ajuste}', [InfoFacturaController::class, 'show'])->name('showAjuste');
+
+//PDF 
 
 Route::get('/viewer/factura/{factura}/pdf', [PDFController::class,'factura'])->name('pdf.factura');
 Route::get('/viewer/billetePlazos/{factura}/pdf', [PDFController::class,'billetePlazos'])->name('pdf.billete_plazos');
@@ -312,6 +327,18 @@ Route::get('/viewer/reciboCaja/{factura}/pdf', [PDFController::class,'reciboCaja
 
 // Route::get('/viewer/estimate/{estimate}/pdf', [PDFController::class,'factura'])->name('pdf.estimate');
 // Route::get('/viewer/payment/{payment}/pdf', [PDFController::class,'factura'])->name('pdf.payment');
+
+
+//REPORTES
+
+Route::get('/reporte/ventas',[ReportesController::class,'ventas'])->name('reporte.ventas');
+Route::get('/reporte/ventas/pdf',[PDFReportesController::class,'ventas'])->name('reporte.ventas.pdf');
+Route::get('/reporte/movimientos',[ReportesController::class,'movimientos'])->name('reporte.movimientos');
+Route::get('/reporte/movimientos/pdf',[PDFReportesController::class,'movimientos'])->name('reporte.movimientos.pdf');
+Route::get('/reporte/ingresos',[ReportesController::class,'ingresos'])->name('reporte.ingresos');
+Route::get('/reporte/ingresos/pdf',[PDFReportesController::class,'ingresos'])->name('reporte.ingresos.pdf');
+Route::get('/reporte/gastos',[ReportesController::class,'gastos'])->name('reporte.gastos');
+Route::get('/reporte/gastos/pdf',[PDFReportesController::class,'gastos'])->name('reporte.gastos.pdf');
 
 
 //IMPRIMIR
@@ -326,6 +353,11 @@ Route::get('agentes/{agente}', [FirmaController::class, 'firmaAgente'])->name('f
 
 Route::post('storeFirma', [FirmaController::class, 'storeFirma'])->name('storeFirma');
 Route::post('storeFirmaAgente', [FirmaController::class, 'storeFirmaAgente'])->name('storeFirmaAgente');
+
+//APUNTES
+Route::get('apuntes', [ApuntesController::class, 'nuevoApunte'])->name('nuevoApunte');
+Route::post('apunte', [ApuntesController::class, 'store'])->name('storeApunte'); 
+Route::get('destroyApunte/{id}', [ApuntesController::class, 'destroy'])->name('destroyApunte');
 
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

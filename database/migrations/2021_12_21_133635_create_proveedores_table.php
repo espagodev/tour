@@ -30,7 +30,7 @@ class CreateProveedoresTable extends Migration
             $table->string('pro_data_seg_1')->nullable();
             $table->string('pro_data_seg_2')->nullable();
             $table->string('pro_data_seg_3')->nullable();
-            $table->integer('pro_estado')->default('0');
+            $table->enum('estado', ['0','1'])->default('1');
             $table->timestamps();
         });
     }

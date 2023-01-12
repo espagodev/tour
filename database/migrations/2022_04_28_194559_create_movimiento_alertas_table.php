@@ -15,11 +15,12 @@ class CreateMovimientoAlertasTable extends Migration
     {
         Schema::create('movimiento_alertas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('billetes_plazos_id')->references('id')->on('billetes_aplazos'); 
+            $table->foreignId('billetes_plazos_id')->references('id')->on('billetes_plazos'); 
             $table->foreignId('factura_id')->references('id')->on('facturas');  
             $table->foreignId('user_id')->references('id')->on('users');  
             $table->string('moa_fecha'); 
-            $table->text('moa_descripcion');        
+            $table->text('moa_descripcion');     
+            $table->enum('estado', ['0','1'])->default('1');   
             $table->timestamps();
         });
     }

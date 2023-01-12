@@ -6,7 +6,7 @@ use App\Models\FormaPago;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class ImpuestosUtils
+class PagosUtils
 {
 
     public static function newFormaPago(Request $request)

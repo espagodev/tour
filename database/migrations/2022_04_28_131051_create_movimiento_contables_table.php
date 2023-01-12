@@ -17,7 +17,7 @@ class CreateMovimientoContablesTable extends Migration
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users');
             $table->foreignId('factura_id')->references('id')->on('facturas'); 
-            $table->foreignId('billetes_plazos_id')->references('id')->on('billetes_aplazos')->nullable();
+            $table->foreignId('billetes_plazos_id')->references('id')->on('billetes_plazos')->nullable();
             $table->foreignId('forma_pago_id')->references('id')->on('forma_pagos');
             $table->foreignId('categoria_id')->references('id')->on('categorias')->nullable();
             $table->foreignId('sub_categoria_id')->references('id')->on('sub_categorias')->nullable();            
@@ -27,6 +27,7 @@ class CreateMovimientoContablesTable extends Migration
             $table->string('moc_fecha')->nullable(); 
             $table->text('moc_descripcion')->nullable();
             $table->enum('moc_contable', ['1','2','3','4','5'])->default('1');
+            $table->enum('estado', ['0','1'])->default('1');
             $table->timestamps();
         });
     }

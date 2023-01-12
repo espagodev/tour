@@ -38,7 +38,6 @@ class AgendaController extends Controller
             'pais_id' => $request->input('pais_id'),
             'provincia_id' => $request->input('provincia_id'),
             'municipio_id' => $request->input('municipio_id'),
-            'carpeta_id' => $request->input('carpeta_id'),
             'tipo_documento_id' => $request->input('tipo_documento_id'),
             'agd_nombres' => $request->input('agd_nombres'),
             'agd_apellidos' => $request->input('agd_apellidos'),
@@ -77,7 +76,6 @@ class AgendaController extends Controller
             'pais_id' => $request->pais_id,
             'provincia_id' => $request->provincia_id,
             'municipio_id' => $request->municipio_id,
-            'carpeta_id' => $request->carpeta_id,
             'tipo_documento_id' => $request->tipo_documento_id,
             'agd_nombres' => $request->agd_nombres,
             'agd_apellidos' => $request->agd_apellidos,
@@ -120,11 +118,14 @@ class AgendaController extends Controller
     {
 
         if ($request->ajax()) {
-            $data['agd_nombres'] = !empty($request->agd_nombres) ?  $request->agd_nombres : '';
-            $data['carpeta_id'] = !empty($request->carpeta_id) ?  $request->carpeta_id : '';
+            $data['agd_nombres'] = $request->agd_nombres;
+            $data['pais_id'] = $request->pais_id;
+            $data['agd_telefono'] = $request->agd_telefono;
+            $data['agd_documento'] = $request->agd_documento;
+            $data['agd_apellidos'] = $request->agd_apellidos;
 
             $agenda = AgendaUtils::agenda($data);
-
+            
             return DataTables::of($agenda)
             ->addColumn('action', function ($row) {    
                 $estado = '';               

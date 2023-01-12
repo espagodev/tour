@@ -38,14 +38,14 @@ class GastosController extends Controller
         return view('gastos.components.modals.modal_edit_gasto', compact('categorias','mayoristas','opcionesPagos','gasto'));
     }
 
-    public function storeGasto(Request $request)
+    public function storeGasto(Request $request) 
     {
        
         $gasto = MovimientoContable::create([
 
-            'moc_numero' => AjustesDocumentosUtils::codigoGasto(),
-            'billetes_plazos_id' => $request->input('billetes_plazos_id'),
-            'factura_id' => $request->input('factura_id'),
+            'moc_numero' => AjustesDocumentosUtils::codigo('3'), 
+            // 'billetes_plazos_id' => $request->input('billetes_plazos_id'),
+            // 'factura_id' => $request->input('factura_id'),
             'user_id' => auth()->user()->id,
             'forma_pago_id' => $request->input('forma_pago_id'),
             'categoria_id' => $request->input('categoria_id'),
@@ -65,7 +65,7 @@ class GastosController extends Controller
             $gasto->save();
         }
             
-        AjustesDocumentosUtils::actualizarConteo('6');
+        AjustesDocumentosUtils::conteo('3');
 
         movimientosUtils::guardarMovimiento($request, null, $request->input('moc_monto'), null, $gasto->id);
 

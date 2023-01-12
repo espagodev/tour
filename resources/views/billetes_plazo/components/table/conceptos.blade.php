@@ -6,7 +6,8 @@
                     <tr>
                         <th >Cant</th> 
                         <th >SubCategoria</th>
-                        <th >Descripcion</th>
+                        <th>Descripcion</th>
+                        <th>Detalle Des</th>
                         <th >Valor</th>
                         <th >Descuento</th>
                         <th >Fee</th>
@@ -27,8 +28,18 @@
                                         {{ $subCategoria->subc_nombre }}</option>
                                 @endforeach
                             </select></td>
-                        <td><input class="form-control form-control-sm" name="con_descripcion[]"
-                                id="con_descripcion" required="" type="text"></td>
+                            <td><select class="form-select form-select-sm " name="descripcion_id[]"
+                                id="descripcion_id" required="">
+                                <option selected="" disabled="" value="">Seleccionar
+                                </option>
+                                @foreach ($descripciones as $descripcion)
+                                    <option value="{{ $descripcion->id }}">
+                                        {{ $descripcion->des_nombre }}</option>
+                                @endforeach
+                            </select></td>
+                        <td>
+                            <textarea class="form-control form-control-sm" name="con_descripcion[]" id="con_descripcion" cols="80" rows="2"></textarea>
+                        </td>
                         <td> <input class="form-control form-control-sm input_number"
                                 name="con_monto[]" id="con_monto" type="text" value="{{ !empty($factura->con_monto) ?  $factura->con_monto : '0'  }}">
                         </td>
@@ -58,8 +69,23 @@
                                         <option value="{{ $subCategoria->id }}" @if($subCategoria->id == old('sub_categoria_id', $concepto->sub_categoria_id)) selected @endif> {{ $subCategoria->subc_nombre }}</option>
                                     @endforeach
                                 </select></td>
-                            <td><input class="form-control form-control-sm" name="con_descripcion[]"
-                                    id="con_descripcion" required="" type="text" value="{{ $concepto->con_descripcion }}" ></td>
+                                <td>
+                                    <select class="form-select form-select-sm "
+                                        name="descripcion_id[]" id="descripcion_id"
+                                        required="">
+                                        <option selected="" disabled="" value="">
+                                            Seleccionar
+                                        </option>
+                                        @foreach ($descripciones as $descripcion)
+                                            <option value="{{ $descripcion->id }}"
+                                                @if ($descripcion->id == old('descripcion_id', $concepto->descripcion_id)) selected @endif>
+                                                {{ $descripcion->des_nombre }}</option>
+                                        @endforeach
+                                    </select>
+                                    
+                                </td>
+                                <td> <textarea class="form-control form-control-sm" name="con_descripcion[]" id="con_descripcion" cols="80" rows="2">{{ $concepto->con_descripcion }}</textarea>
+                                </td>
                             <td> <input class="form-control form-control-sm input_number"
                                     name="con_monto[]" id="con_monto" type="text" value="  {{ !empty($concepto->con_monto) ?  $concepto->con_monto : '0'}}">
                             </td>

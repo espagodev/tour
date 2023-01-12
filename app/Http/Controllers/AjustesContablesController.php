@@ -44,7 +44,7 @@ class AjustesContablesController extends Controller
        
         $ajusteContable = MovimientoContable::create([
 
-            'moc_numero' => AjustesDocumentosUtils::codigoAjuste(),
+            'moc_numero' => AjustesDocumentosUtils::codigo('8'), 
             'billetes_plazos_id' => $request->input('billetes_plazos_id'),
             'factura_id' => $request->input('factura_id'),
             'user_id' => auth()->user()->id,
@@ -66,7 +66,7 @@ class AjustesContablesController extends Controller
             $ajusteContable->save();
         }
             
-        AjustesDocumentosUtils::actualizarConteo('8');
+        AjustesDocumentosUtils::conteo('8');
 
         movimientosUtils::guardarMovimiento($request, null, $request->input('moc_monto'), null, $ajusteContable->id);
 

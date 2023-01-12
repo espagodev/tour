@@ -3,7 +3,7 @@
     <div class="form-group">
         <div class="input-group input-group-sm mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-sm"><i class="icon-calendar"></i></span>
+                <span class="input-group-text" id="agd_nombres"><i class="icon-calendar"></i></span>
             </div>
             <input type="text" class="form-control"  name="agd_nombres" id="agd_nombres" >
         </div>

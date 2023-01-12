@@ -30,6 +30,9 @@ class Factura extends Model
         'fac_total_fee',
         'fac_total_descuento',
         'fac_firma',
+        'fac_total_impuesto',
+        'fac_fecha',
+        'fac_fecha_vencimiento',
     ];
 
     protected $dates = [

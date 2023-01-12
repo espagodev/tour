@@ -14,7 +14,7 @@ $(document).ready(function () {
 
     }
 
-    $("#listado_recibos,  #carpeta_id, #forma_pago_id, #mayorista_id").change(function () {
+    $("#listado_recibos,  #pais_id, #forma_pago_id, #mayorista_id").change(function () {
         listado_recibos.ajax.reload();
     });
 
@@ -29,7 +29,7 @@ $(document).ready(function () {
             url: "/recibo_caja/getListadoReciboCaja",
             dataType: "json",
             data: function (d) {
-                // d.forma_pago_id = $('select#forma_pago_id').val();
+                // d.forma_pago_id = $('select#forma_pago_id').val(); 
                 d.mayorista_id  = $('select#mayorista_id').val();
                 var start = '';
                 var end = '';

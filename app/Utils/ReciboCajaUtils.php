@@ -127,16 +127,20 @@ class ReciboCajaUtils
             'CON.id',
             'CON.impuesto_id', 
             'CON.sub_categoria_id', 
+            'CON.descripcion_id', 
             'CON.con_descripcion', 
             'CON.con_cantidad', 
             'SUBC.subc_nombre', 
             'CON.con_monto', 
             'CON.con_fee', 
-            'CON.con_descuento'
+            'CON.con_descuento',
+            'DESC.des_nombre'
         )->leftjoin('conceptos as CON', function ($join) {
             $join->on('facturas.id', '=', 'CON.factura_id');
         }) ->leftjoin('sub_categorias AS SUBC', function ($join) {
             $join->on('CON.sub_categoria_id', '=', 'SUBC.id');
+        }) ->leftjoin('descripciones AS DESC', function ($join) {
+            $join->on('CON.descripcion_id', '=', 'DESC.id');
         }) ->where('facturas.id', $Id);
 
         return    $query->get();
@@ -160,9 +164,26 @@ class ReciboCajaUtils
 
     public static function facturaPasajeros($Id)
     {
-        $query = DB::table('facturas')->leftjoin('conceptos as CON', function ($join) {
-            $join->on('facturas.id', '=', 'CON.factura_id');
+        $query = DB::table('facturas')
+        ->select(
+        'PAS.id',
+        'factura_id',
+        'agenda_id',
+        'user_id',
+        'pais_id',
+        'sub_categoria_id',
+        'pas_localizador',
+        'pas_fecha_salidad',
+        'pas_fecha_regreso',
+        'pas_valor_individual'
+        )
+        ->leftjoin('pasajeros as PAS', function ($join) {
+            $join->on('facturas.id', '=', 'PAS.factura_id');
+        }) ->leftjoin('pasajeros as PAS', function ($join) {
+            $join->on('facturas.id', '=', 'PAS.factura_id');
         }) ->where('facturas.id', $Id);
+
+        return    $query->get();
     }
 
     public static function ReciboCajaPdfId($Id)
@@ -181,11 +202,13 @@ class ReciboCajaUtils
                 'facturas.fac_total_pendiente',
                 'facturas.fac_total_descuento',
                 'facturas.fac_total_fee',
+                'facturas.fac_total_impuesto',
                 'facturas.fac_firma',
+                'facturas.fac_fecha',
+                'facturas.fac_fecha_vencimiento',
                 'agd_direccion',
                 'agd_telefono',
                 'agd_email',
-                'car_nombre',
                 'pai_nombre',
                 'pro_nombre',
                 'mun_nombre',
@@ -207,8 +230,6 @@ class ReciboCajaUtils
                     $join->on('facturas.forma_pago_id', '=', 'forma_pagos.id');
                 })->join('tipo_documentos', function ($join) {
                     $join->on('agendas.tipo_documento_id', '=', 'tipo_documentos.id');
-                }) ->join('carpetas', function ($join) {
-                    $join->on('agendas.carpeta_id', '=', 'carpetas.id');
                 }) ->leftjoin('pais', function ($join) {
                     $join->on('agendas.pais_id', '=', 'pais.id');
                 })  ->leftjoin('provincias', function ($join) {
@@ -250,13 +271,16 @@ class ReciboCajaUtils
                 'facturas.fac_total_pendiente',
                 'facturas.fac_total_descuento',
                 'facturas.fac_total_fee',
+                'facturas.fac_total_impuesto',
                 'facturas.estado_id',
-                'car_nombre',
+                'facturas.fac_fecha',
+                'facturas.fac_fecha_vencimiento',
                 'pai_nombre',
                 'pro_nombre',
                 'mun_nombre',
                 'cat_nombre',
                 'may_nombre',
+                'pai_gentilicio',
                 DB::raw("CONCAT(COALESCE(agendas.agd_nombres, ''),' ',COALESCE(agendas.agd_apellidos, '')) as full_name_agenda"),
                 DB::raw("CONCAT(COALESCE(users.nombres, ''),' ',COALESCE(users.apellidos, '')) as full_name_agente"),
                 DB::raw("CONCAT(COALESCE(tipo_documentos.tid_nombre, ''),' ',COALESCE(agendas.agd_documento, '')) as documento")         
@@ -269,8 +293,6 @@ class ReciboCajaUtils
                     $join->on('facturas.user_id', '=', 'users.id');
                 })->join('tipo_documentos', function ($join) {
                     $join->on('agendas.tipo_documento_id', '=', 'tipo_documentos.id');
-                }) ->join('carpetas', function ($join) {
-                    $join->on('agendas.carpeta_id', '=', 'carpetas.id');
                 }) ->leftjoin('pais', function ($join) {
                     $join->on('agendas.pais_id', '=', 'pais.id');
                 })  ->leftjoin('provincias', function ($join) {
@@ -366,6 +388,8 @@ class ReciboCajaUtils
             'user_id' => auth()->user()->id,
             'categoria_id' => $request->input('categoria_id'),  
             'fac_tipo_documento' => $request->input('fac_tipo_documento'),
+            'fac_fecha' => $request->input('fac_fecha'),
+            'fac_fecha_vencimiento' => $request->input('fac_fecha_vencimiento'),
             'estado_id' => '1'            
         ]);
         

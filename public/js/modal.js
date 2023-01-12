@@ -203,3 +203,16 @@ function __subCategoria(categoriaId,subCategoriaId){
         });
     }
 }
+
+
+function __datepicker() {
+    $(".fecha").datepicker({
+        format: "dd/mm/yyyy",
+        formatSubmit: "dd/mm/yyyy",
+        today: "Hoy",
+        clear: "",
+        close: "Cancelar",
+        min: -4,
+        max: 0,
+    });    
+}

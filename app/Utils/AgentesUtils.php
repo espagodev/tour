@@ -15,7 +15,6 @@ class AgentesUtils{
             $agenda = Agenda:: select('id','pais_id',
             'provincia_id',
             'municipio_id',
-            'carpeta_id',
             'tipo_documento_id',
             'agd_nombres AS text',
             'agd_apellidos',
@@ -87,10 +86,7 @@ class AgentesUtils{
         return    $query->first();
         
     }
-    public static function FiltroCarpeta($query, $carpeta_id)
-    {
-        return $query->where('agendas.carpeta_id', $carpeta_id);
-    }
+
     public static function FiltroNombre($query, $agd_nombres)
     {
        return $query->where('agendas.agd_nombres', $agd_nombres);

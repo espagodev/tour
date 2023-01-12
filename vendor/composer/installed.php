@@ -1,11 +1,11 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => NULL,
+        'reference' => 'c1d1b26050aa6a65ea37a30a98dd602f77b1c502',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -413,12 +413,12 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => NULL,
+            'reference' => 'c1d1b26050aa6a65ea37a30a98dd602f77b1c502',
             'dev_requirement' => false,
         ),
         'laravel/sail' => array(
@@ -1017,6 +1017,15 @@
             'install_path' => __DIR__ . '/../spatie/laravel-menu',
             'aliases' => array(),
             'reference' => '1fc1da8e2c8bc896557e6f4d0cec2c3125e96d1c',
+            'dev_requirement' => false,
+        ),
+        'spatie/laravel-permission' => array(
+            'pretty_version' => '5.7.0',
+            'version' => '5.7.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../spatie/laravel-permission',
+            'aliases' => array(),
+            'reference' => '3a9bc00e6d338a9c61f830af654aa5c326407632',
             'dev_requirement' => false,
         ),
         'spatie/macroable' => array(

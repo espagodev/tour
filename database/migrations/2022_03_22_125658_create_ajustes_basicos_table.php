@@ -46,6 +46,7 @@ class CreateAjustesBasicosTable extends Migration
             $table->string('daf_nombre');
             $table->string('daf_detalle')->nullable();
             $table->string('daf_detalle_js')->nullable();
+            $table->enum('estado', ['0','1'])->default('0');
             $table->timestamps();
         });
 
@@ -54,6 +55,7 @@ class CreateAjustesBasicosTable extends Migration
             $table->string('tif_nombre');
             $table->string('tif_detalle')->nullable();
             $table->string('tif_detalle_js')->nullable();
+            $table->enum('estado', ['0','1'])->default('0');
             $table->timestamps();
         });
 
@@ -62,6 +64,7 @@ class CreateAjustesBasicosTable extends Migration
             $table->string('tiz_nombre');
             $table->string('tiz_timezone');
             $table->boolean('is_active');
+            $table->enum('estado', ['0','1'])->default('0');
             $table->timestamps();
         });
 
@@ -74,6 +77,7 @@ class CreateAjustesBasicosTable extends Migration
             $table->string('div_separador_miles', 10);
             $table->string('div_separador_decimal', 10);
             $table->boolean('div_active')->default(true);
+            $table->enum('estado', ['0','1'])->default('0');
             $table->timestamps();
         });
     }

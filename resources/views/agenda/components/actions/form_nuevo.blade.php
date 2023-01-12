@@ -1,27 +1,18 @@
 {{-- <div class="card">
     <div class="card-body"> --}}
         <div class="row g-3">
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <label class="form-label" for="agd_nombres">Nombre</label>
                 <input class="form-control form-control-sm" name="agd_nombres" id="agd_nombres" value="{{ $agenda->agd_nombres ?? '' }}"
                     type="text" value="" required="">
                 <div class="valid-feedback">Looks good!</div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <label class="form-label" for="agd_apellidos">Apellidos</label>
                 <input class="form-control form-control-sm" name="agd_apellidos" id="agd_apellidos" value="{{ $agenda->agd_apellidos ?? '' }}"
                     type="text" value="" required="">
                 <div class="valid-feedback">Looks good!</div>
-            </div>
-            <div class="col-md-4">
-                <label class="form-label" for="carpeta_id">Carpeta</label>
-                <select class="form-select form-select-sm" name="carpeta_id" id="carpeta_id" required="">
-                    @foreach ($carpetas as $carpeta)
-                        <option value="{{ $carpeta->id }}" {{ $agenda->carpeta_id == $carpeta['id'] ? 'selected=""' : '' }}>{{ $carpeta->car_nombre }}</option>
-                    @endforeach
-                </select>
-                <div class="invalid-feedback">Seleccione una Carpeta.</div>
-            </div>
+            </div>           
         </div>
         <div class="row g-3">
             <div class="col-md-4">
@@ -81,6 +72,8 @@
                 <label class="form-label" for="pais_id">Pais</label>
                 <select class="form-select form-select-sm js-example-basic-single" name="pais_id"
                     id="pais_id" >
+                    <option selected="" disabled="" value="" required="">Seleccione</option>
+
                     @foreach ($paises as $pais)
                         <option value="{{ $pais->id }}" {{ $agenda->pais_id == $pais['id'] ? 'selected=""' : '' }}>{{ $pais->pai_nombre }}</option>
                     @endforeach
@@ -91,6 +84,8 @@
                 <label class="form-label" for="provincia_id">Provincia</label>
                 <select class="form-select form-select-sm js-example-basic-single" name="provincia_id"
                     id="provincia_id" >
+                    <option selected="" disabled="" value="" required="">Seleccione</option>
+
                     @foreach ($provincias as $provincia)
                         <option value="{{ $provincia->id }}" {{ $agenda->provincia_id == $provincia['id'] ? 'selected=""' : '' }}>{{ $provincia->pro_nombre }}</option>
                     @endforeach
@@ -101,6 +96,8 @@
                 <label class="form-label" for="municipio_id">Localidad</label>
                 <select class="form-select form-select-sm js-example-basic-single" name="municipio_id"
                     id="municipio_id" >
+                    <option selected="" disabled="" value="" required="">Seleccione</option>
+
                     @foreach ($municipios as $municipio)
                         <option value="{{ $municipio->id }}" {{ $agenda->municipio_id == $municipio['id'] ? 'selected=""' : '' }}>{{ $municipio->mun_nombre }}</option>
                     @endforeach

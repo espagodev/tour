@@ -44,9 +44,9 @@ class IngresosController extends Controller
        
         $ingreso = MovimientoContable::create([
 
-            'moc_numero' => AjustesDocumentosUtils::codigoingreso(),
-            'billetes_plazos_id' => $request->input('billetes_plazos_id'),
-            'factura_id' => $request->input('factura_id'),
+            'moc_numero' => AjustesDocumentosUtils::codigo('6'),  
+            // 'billetes_plazos_id' => $request->input('billetes_plazos_id'),
+            // 'factura_id' => $request->input('factura_id'),
             'user_id' => auth()->user()->id,
             'forma_pago_id' => $request->input('forma_pago_id'),
             'categoria_id' => $request->input('categoria_id'),
@@ -66,7 +66,7 @@ class IngresosController extends Controller
             $ingreso->save();
         }
             
-        AjustesDocumentosUtils::actualizarConteo('6');
+        AjustesDocumentosUtils::conteo('6');
 
         movimientosUtils::guardarMovimiento($request, null, $request->input('moc_monto'), null, $ingreso->id);
 
@@ -106,7 +106,7 @@ class IngresosController extends Controller
         if ($request->ajax()) {
             $data =  $request->only(['start_date', 'end_date', 'forma_pago_id']);
 
-           
+            // dd($data);
             $ingresos = IngresosUtils::ingresos($data);
             return DataTables::of($ingresos)
             // ->editColumn('moc_fecha', '{{@format_date($moc_fecha)}}')
@@ -117,8 +117,6 @@ class IngresosController extends Controller
             })
             ->addColumn('action', function ($row) {                  
                 
-                $estado = '';
-
                 $estado = '';
                 $estado .= '<a href=""  class="btn btn-outline-danger btn-xs"><i class="fa fa-trash-o"></i> </a>';
 

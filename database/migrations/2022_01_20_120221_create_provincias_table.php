@@ -17,6 +17,7 @@ class CreateProvinciasTable extends Migration
             $table->id();
             $table->foreignId('comunida_autonoma_id')->references('id')->on('comunida_autonomas'); 
             $table->string('pro_nombre');
+            $table->enum('estado', ['0','1'])->default('0');
             $table->timestamps();
         });
     }

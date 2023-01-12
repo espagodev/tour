@@ -13,10 +13,12 @@ class Pasajero extends Model
         'factura_id',
         'agenda_id',
         'user_id',
+        'pais_id',
         'sub_categoria_id',
         'pas_localizador',
         'pas_fecha_salidad',
-        'pas_fecha_regreso',       
+        'pas_fecha_regreso',
+        'pas_valor_individual',
     ];
 
         //Mutadores

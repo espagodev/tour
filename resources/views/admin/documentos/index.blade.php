@@ -6,10 +6,10 @@
         <div class="page-header">
             <div class="row">
                 <div class="col-sm-6">
-                    <h3>Documentos Contables</h3>
+                    <h3>Facturas y Documentos Contables</h3>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.html">App</a></li>
-                        <li class="breadcrumb-item">Documentos Contables</li>
+                        <li class="breadcrumb-item">Facturas y Documentos Contables</li>
                         <li class="breadcrumb-item active">Listado</li>
                     </ol>
                 </div>

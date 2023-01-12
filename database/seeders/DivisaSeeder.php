@@ -149,11 +149,11 @@ class DivisaSeeder extends SeederHelper
             [ "id" => "131", "div_pais" => "Zimbabwe", "div_moneda" => "Zimbabwe Dollars", "div_codigo" => "ZWD", "div_simbolo" => "Z$","div_separador_miles" => ",", "div_separador_decimal" => "." ],
             [ "id" => "132", "div_pais" => "Iraq", "div_moneda" => "Iraqi dinar", "div_codigo" => "IQD", "div_simbolo" => "د.ع","div_separador_miles" => ",", "div_separador_decimal" => "." ],
             [ "id" => "133", "div_pais" => "Kenya", "div_moneda" => "Kenyan shilling", "div_codigo" => "KES", "div_simbolo" => "KSh","div_separador_miles" => ",", "div_separador_decimal" => "." ],
-            ["id" => "134", "div_pais" => "Bangladesh", "div_moneda" => "Taka", "div_codigo" => "BDT", "div_simbolo" => "৳", "div_separador_miles" => ",", "div_separador_decimal" => "." ],
-            ["div_pais" => "Algerie", "div_moneda" => "Algerian dinar", "div_codigo" => "DZD", "div_simbolo" => "د.ج", "div_separador_miles" => " ", "div_separador_decimal" => "." ],
-            [ "div_pais" => "United Arab Emirates", "div_moneda" => "United Arab Emirates dirham", "div_codigo" => "AED", "div_simbolo" => "د.إ", "div_separador_miles" => ",", "div_separador_decimal" => "." ],
-            [ "div_pais" => "Uganda", "div_moneda" => "Uganda shillings", "div_codigo" => "UGX", "div_simbolo" => "USh", "div_separador_miles" => ",", "div_separador_decimal" => "." ],
-            [ "div_pais" => "Tanzania", "div_moneda" => "Tanzanian shilling", "div_codigo" => "TZS", "div_simbolo" => "TSh", "div_separador_miles" => ",", "div_separador_decimal" => "." ]
+            [ "id" => "134", "div_pais" => "Bangladesh", "div_moneda" => "Taka", "div_codigo" => "BDT", "div_simbolo" => "৳", "div_separador_miles" => ",", "div_separador_decimal" => "." ],
+            [ "id" => "135", "div_pais" => "Algerie", "div_moneda" => "Algerian dinar", "div_codigo" => "DZD", "div_simbolo" => "د.ج", "div_separador_miles" => " ", "div_separador_decimal" => "." ],
+            [ "id" => "136", "div_pais" => "United Arab Emirates", "div_moneda" => "United Arab Emirates dirham", "div_codigo" => "AED", "div_simbolo" => "د.إ", "div_separador_miles" => ",", "div_separador_decimal" => "." ],
+            [ "id" => "137", "div_pais" => "Uganda", "div_moneda" => "Uganda shillings", "div_codigo" => "UGX", "div_simbolo" => "USh", "div_separador_miles" => ",", "div_separador_decimal" => "." ],
+            [ "id" => "138", "div_pais" => "Tanzania", "div_moneda" => "Tanzanian shilling", "div_codigo" => "TZS", "div_simbolo" => "TSh", "div_separador_miles" => ",", "div_separador_decimal" => "." ]
       
     );
     public function run()

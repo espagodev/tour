@@ -17,6 +17,7 @@ class CreateInfoFacturasTable extends Migration
             $table->id();
             $table->string('inf_titulo');
             $table->text('inf_html');
+            $table->enum('estado', ['0','1'])->default('1');
             $table->timestamps();
         });
     }

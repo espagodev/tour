@@ -23,7 +23,7 @@ class CreateServiciosTable extends Migration
             $table->string('ser_notas')->nullable();
             $table->string('ser_usuario')->nullable();
             $table->string('ser_password')->nullable();
-            $table->integer('ser_estado')->default('1');
+            $table->enum('estado', ['0','1'])->default('1');
             $table->timestamps();
         });
     }

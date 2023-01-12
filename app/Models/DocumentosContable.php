@@ -24,4 +24,15 @@ class DocumentosContable extends Model
         'doc_footer',
         'doc_template',
     ];
+
+    public function setDocNombreAttribute($valor)
+    {
+        $this->attributes['doc_nombre'] = strtolower($valor);
+    }
+
+    
+    public function getDocNombreAttribute($valor)
+    {
+        return ucwords($valor);
+    }
 }

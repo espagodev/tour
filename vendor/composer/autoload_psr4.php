@@ -41,6 +41,7 @@ return array(
     'Symfony\\Component\\Console\\' => array($vendorDir . '/symfony/console'),
     'Svg\\' => array($vendorDir . '/phenx/php-svg-lib/src/Svg'),
     'Spatie\\Url\\' => array($vendorDir . '/spatie/url/src'),
+    'Spatie\\Permission\\' => array($vendorDir . '/spatie/laravel-permission/src'),
     'Spatie\\Menu\\Laravel\\' => array($vendorDir . '/spatie/laravel-menu/src'),
     'Spatie\\Menu\\' => array($vendorDir . '/spatie/menu/src'),
     'Spatie\\Macroable\\' => array($vendorDir . '/spatie/macroable/src'),

@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function () { 
  
     if ($("#reportrange").length == 1) {
         $("#reportrange").daterangepicker(dateRangeSettings, function(start,end) {

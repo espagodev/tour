@@ -34,6 +34,7 @@ class CreateAjustesDocumentosTable extends Migration
             $table->string('ajd_conteo_ajustes')->default(0);
             $table->string('ajd_conteo_abono_cliente')->default(0);
             $table->string('ajd_conteo_abono_mayorista')->default(0);
+            $table->enum('estado', ['0','1'])->default('1');
             $table->timestamps();
         });
     }

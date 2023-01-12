@@ -29,7 +29,6 @@ class ConceptosUtils{
 
     public static function guardarConceptos($request, $documento, $facturaId){
       
-        
         $totalConceptos = 0;
         $totalDescuento = 0;
         $totalFee = 0;
@@ -41,6 +40,7 @@ class ConceptosUtils{
         $impuesto_id = $request->impuesto_id;
         $con_descuento = $request->con_descuento;
         $con_fee = $request->con_fee;
+        $descripcion_id = $request->descripcion_id;
 
    
 
@@ -52,16 +52,8 @@ class ConceptosUtils{
         if(!empty($impuesto_id)){
             $con_impuesto =  utils::get_percent($con_total, $impuesto_id[$i]);
             $impuesto_id = $impuesto_id[$i] ;
-        }else{
-            $con_impuesto = 0;
-            $impuesto_id =  '';
-        }
-            //    DD($impuesto_id);
-            $totalConceptos += $con_total;
-            $totalDescuento += $con_descuento[$i];
-            $totalFee += $con_fee[$i];
 
-             Concepto::create([
+            Concepto::create([
                 'factura_id' => $facturaId,
                 'agenda_id' => $documento->agenda_id,
                 'user_id' => auth()->user()->id,    
@@ -69,6 +61,7 @@ class ConceptosUtils{
                 'sub_categoria_id' => $sub_categoria_id_con[$i],
                 'impuesto_id' => $impuesto_id,
                 'con_cantidad' => $con_cantidad[$i],
+                'descripcion_id' => $descripcion_id[$i],
                 'con_descripcion' => $con_descripcion[$i],                   
                 'con_monto' => $con_monto[$i],
                 'con_impuesto' => $con_impuesto,
@@ -77,6 +70,30 @@ class ConceptosUtils{
                 'con_localizador' => '',
                 'con_fee' => $con_fee[$i],    
           ]);
+
+        }else{
+            Concepto::create([
+                'factura_id' => $facturaId,
+                'agenda_id' => $documento->agenda_id,
+                'user_id' => auth()->user()->id,    
+                'mayorista_id' => $documento->mayorista_id,
+                'sub_categoria_id' => $sub_categoria_id_con[$i],
+                'con_cantidad' => $con_cantidad[$i],
+                'descripcion_id' => $descripcion_id[$i],
+                'con_descripcion' => $con_descripcion[$i],                   
+                'con_monto' => $con_monto[$i],
+                'con_total' => $con_total,
+                'con_descuento' => $con_descuento[$i],                
+                'con_localizador' => '',
+                'con_fee' => $con_fee[$i],    
+          ]);
+        }
+            //    DD($impuesto_id);
+            $totalConceptos += $con_total;
+            $totalDescuento += $con_descuento[$i];
+            $totalFee += $con_fee[$i];
+
+
        
        
         }

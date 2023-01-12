@@ -62,7 +62,7 @@
                                         <th>Nombre</th>
                                         <th>Teléfono</th>
                                         <th>Email</th>
-                                        <th>Carpeta</th>
+                                        <th>Pais</th>
                                         <th>Opciones</th>
                                     </tr>
                                 </thead>

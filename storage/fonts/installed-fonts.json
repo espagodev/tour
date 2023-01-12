@@ -1,0 +1,60 @@
+{
+    "montserrat": {
+        "100_italic": "C:\\wamp\\www\\tour.espagodev.test\\storage\\fonts\/montserrat_100_italic_f6e39813e81e2a2915375a01035869ff",
+        "200_italic": "C:\\wamp\\www\\tour.espagodev.test\\storage\\fonts\/montserrat_200_italic_7b7696ff3357448a0828129439d682c1",
+        "300_italic": "C:\\wamp\\www\\tour.espagodev.test\\storage\\fonts\/montserrat_300_italic_fb5a415793464dedbdefb17fc42d396a",
+        "italic": "C:\\wamp\\www\\tour.espagodev.test\\storage\\fonts\/montserrat_italic_9a283117545b9246f20d56faf2071ead",
+        "500_italic": "C:\\wamp\\www\\tour.espagodev.test\\storage\\fonts\/montserrat_500_italic_a8d93c9bcd6408024258001b80e0033a",
+        "600_italic": "C:\\wamp\\www\\tour.espagodev.test\\storage\\fonts\/montserrat_600_italic_0cee389f6c978f7f2708882291d2fee9",
+        "bold_italic": "C:\\wamp\\www\\tour.espagodev.test\\storage\\fonts\/montserrat_bold_italic_cabe9904a9b42c276b45035227289afd",
+        "800_italic": "C:\\wamp\\www\\tour.espagodev.test\\storage\\fonts\/montserrat_800_italic_e8f68da5515f1b6aa1499590748820f0",
+        "900_italic": "C:\\wamp\\www\\tour.espagodev.test\\storage\\fonts\/montserrat_900_italic_4460920257b18e38ca9c58e955ff8157",
+        "100": "C:\\wamp\\www\\tour.espagodev.test\\storage\\fonts\/montserrat_100_a33175ed70b9f7658ae81c9efa61938d",
+        "200": "C:\\wamp\\www\\tour.espagodev.test\\storage\\fonts\/montserrat_200_d36113c7a8643243e5b2a0e2685ba6ee",
+        "300": "C:\\wamp\\www\\tour.espagodev.test\\storage\\fonts\/montserrat_300_39b1972e72c43f1f0e368a33cc82c0ce",
+        "normal": "C:\\wamp\\www\\tour.espagodev.test\\storage\\fonts\/montserrat_normal_b74b751c20b429298921949795391ef1",
+        "500": "C:\\wamp\\www\\tour.espagodev.test\\storage\\fonts\/montserrat_500_a34ab50d0b60a015b62e11133b0bf05b",
+        "600": "C:\\wamp\\www\\tour.espagodev.test\\storage\\fonts\/montserrat_600_54346339d706ca965bcbed499d2795db",
+        "bold": "C:\\wamp\\www\\tour.espagodev.test\\storage\\fonts\/montserrat_bold_4b7576218464d90344a2d2769cab2f75",
+        "800": "C:\\wamp\\www\\tour.espagodev.test\\storage\\fonts\/montserrat_800_65b23b6af673d3e826e93ac9d76d4ee3",
+        "900": "montserrat_900_f211363c4d816f802e92103f12fe3e42"
+    },
+    "roboto": {
+        "100_italic": "C:\\wamp\\www\\tour.espagodev.test\\storage\\fonts\/roboto_100_italic_71d4fad1ca0f22d70d8be7cc40bb76ab",
+        "300_italic": "C:\\wamp\\www\\tour.espagodev.test\\storage\\fonts\/roboto_300_italic_3d719d848a0b6b3f4f0918985ffd2db7",
+        "italic": "C:\\wamp\\www\\tour.espagodev.test\\storage\\fonts\/roboto_italic_e3ef71c7d9eeac822fc7d92d4fc7ff6e",
+        "500_italic": "C:\\wamp\\www\\tour.espagodev.test\\storage\\fonts\/roboto_500_italic_e69cd621b57d68ed0b47f09bd22a3d7e",
+        "bold_italic": "C:\\wamp\\www\\tour.espagodev.test\\storage\\fonts\/roboto_bold_italic_76e4a6bfadf19fea9990a367967a3f96",
+        "900_italic": "C:\\wamp\\www\\tour.espagodev.test\\storage\\fonts\/roboto_900_italic_7ad2e464d2e86e53eea8619bf6734bbe",
+        "100": "C:\\wamp\\www\\tour.espagodev.test\\storage\\fonts\/roboto_100_1c4e32da7e6c8539dd3a51af38f413be",
+        "300": "C:\\wamp\\www\\tour.espagodev.test\\storage\\fonts\/roboto_300_32acfcb296f555e063ebba2be7db9e2f",
+        "normal": "C:\\wamp\\www\\tour.espagodev.test\\storage\\fonts\/roboto_normal_7bc701b343c10631f60048716b96e4f7",
+        "500": "C:\\wamp\\www\\tour.espagodev.test\\storage\\fonts\/roboto_500_5774d6fb05eba3d096525f821dbe4137",
+        "bold": "C:\\wamp\\www\\tour.espagodev.test\\storage\\fonts\/roboto_bold_8db5cb5d0586c1e891426d13097b1d04",
+        "900": "roboto_900_7bf41cacaff90e7097ddd49fb9296601"
+    },
+    "rubik": {
+        "300_italic": "C:\\wamp\\www\\tour.espagodev.test\\storage\\fonts\/rubik_300_italic_197b038c8f0e8a51c6165b8d985890a1",
+        "italic": "C:\\wamp\\www\\tour.espagodev.test\\storage\\fonts\/rubik_italic_cc9c734272d6a895db54d9a62cc3ea95",
+        "500_italic": "C:\\wamp\\www\\tour.espagodev.test\\storage\\fonts\/rubik_500_italic_2f610e7239b7ef8290f209f4e594a467",
+        "600_italic": "C:\\wamp\\www\\tour.espagodev.test\\storage\\fonts\/rubik_600_italic_28807c274a5371c3187a6fe2cac34bbc",
+        "bold_italic": "C:\\wamp\\www\\tour.espagodev.test\\storage\\fonts\/rubik_bold_italic_985b7eaa100f482c0832ac771ce91226",
+        "800_italic": "C:\\wamp\\www\\tour.espagodev.test\\storage\\fonts\/rubik_800_italic_9d2ad6d88463c568e8c0dcf4037667d8",
+        "900_italic": "C:\\wamp\\www\\tour.espagodev.test\\storage\\fonts\/rubik_900_italic_024f08afffc2634ec52f9bdf15ad2f03",
+        "normal": "C:\\wamp\\www\\tour.espagodev.test\\storage\\fonts\/rubik_normal_2f4b4ccf67d2b7ee962c25ab247ed628",
+        "500": "C:\\wamp\\www\\tour.espagodev.test\\storage\\fonts\/rubik_500_701bc5f002726e5b96d4736f6eb62ca8",
+        "600": "C:\\wamp\\www\\tour.espagodev.test\\storage\\fonts\/rubik_600_76bdc28fb15fc0ca2bd94000c13cbf0e",
+        "bold": "C:\\wamp\\www\\tour.espagodev.test\\storage\\fonts\/rubik_bold_6ed765870802b99665c714803e371957",
+        "800": "C:\\wamp\\www\\tour.espagodev.test\\storage\\fonts\/rubik_800_6fa9c81a2a382b176652aedd10e14b3a",
+        "900": "rubik_900_b6cf4e5f10fe0de7ebd6be0882210eec"
+    },
+    "fontawesome": {
+        "normal": "fontawesome_normal_f6ff72f1729249da9c97105c66a08ef7"
+    },
+    "icofont": {
+        "normal": "icofont_normal_12ab055df85da21a884f565527ae9e0f"
+    },
+    "themify": {
+        "normal": "themify_normal_bc5a83f78df69a111e02281bfd420df5"
+    }
+}

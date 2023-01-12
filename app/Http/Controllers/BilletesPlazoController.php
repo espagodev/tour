@@ -8,7 +8,9 @@ use App\Models\Factura;
 use App\Utils\AjustesDocumentosUtils;
 use App\Utils\BilletePlazosUtils;
 use App\Utils\ConceptosUtils;
+use App\Utils\DescripcionesUtils;
 use App\Utils\FacturaUtils;
+use App\Utils\PaisUtils;
 use App\Utils\Selects;
 use App\Utils\SubCategoriaUtils;
 use Illuminate\Http\Request;
@@ -72,11 +74,11 @@ class BilletesPlazoController extends Controller
     public function storeBilletePlazos(Request $request)
     {
   
-        $fac_nota_credito = AjustesDocumentosUtils::codigoNotaCredito();
+        $fac_nota_credito = AjustesDocumentosUtils::codigo('2');
         $fact = FacturaUtils::generarDocumento($request, $fac_numero = null, $fac_recibo = null, $fac_nota_credito);
         BilletePlazosUtils::crearBilleteAplazos($request,  $fact->id);
 
-        AjustesDocumentosUtils::actualizarConteo('3');
+        AjustesDocumentosUtils::conteo('2');
                  
         return redirect()->route('editBilletePlazos', ['factura' => $fact->id]);
     }
@@ -86,15 +88,17 @@ class BilletesPlazoController extends Controller
        
         $impuestos = Selects::impuestos();      
 
-       
         $observaciones = Selects::observaciones();
+
+        $descripciones = DescripcionesUtils::descripciones();
         $infoFacturas = Selects::infoFacturas();
 
         $billetePlazo = BilletePlazosUtils::BilletePlazoId($facturaId);
         $subCategorias = SubCategoriaUtils::sub_categoria($billetePlazo->categoria_id);
         $conceptos =  BilletePlazosUtils::facturaConceptos($facturaId);
-        // dd($billetePlazo);
-        return view('billetes_plazo.edit',compact('billetePlazo','impuestos','subCategorias','observaciones','infoFacturas','facturaId','conceptos'));
+        $paises = PaisUtils::paises();
+
+        return view('billetes_plazo.edit',compact('billetePlazo','impuestos','subCategorias','observaciones','infoFacturas','facturaId','conceptos','descripciones', 'paises'));
 
     }
 

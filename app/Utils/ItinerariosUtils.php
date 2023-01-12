@@ -20,15 +20,12 @@ class ItinerariosUtils{
                 'fac_recibo',
                 'fac_nota_credito',
                 'subc_nombre',
-                'car_nombre',
                
                 DB::raw("CONCAT(COALESCE(agendas.agd_nombres, ''),' ',COALESCE(agendas.agd_apellidos, '')) as full_name_agenda"),
             )
            ->join('agendas', function ($join) {
                 $join->on('pasajeros.agenda_id', '=', 'agendas.id');
-            })->join('carpetas', function ($join) {
-                $join->on('agendas.carpeta_id', '=', 'carpetas.id');
-            }) ->join('sub_categorias', function ($join) {
+            })->join('sub_categorias', function ($join) {
                 $join->on('pasajeros.sub_categoria_id', '=', 'sub_categorias.id');
             })->join('facturas', function ($join) {
                 $join->on('pasajeros.factura_id', '=', 'facturas.id');

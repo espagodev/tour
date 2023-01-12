@@ -33,6 +33,9 @@
         <li><a href="" data-container="body" data-bs-toggle="popover" data-placement="top" title=""
                 data-original-title="Learning"><i data-feather="trash-2"></i></a>
         </li>
-
+        <li><a class="btn-modal" href="#" data-container=".view_register"
+                data-href="{{ route('anularFactura', [$facturaId]) }}" data-container="body"
+                data-bs-toggle="popover" data-placement="top" title="Anular Factura" data-original-title="Learning"><i data-feather="minus-square"></i></a>
+        </li>
     </ul>
 </div>

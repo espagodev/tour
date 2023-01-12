@@ -122,7 +122,7 @@ class AgenteController extends Controller
 
         if ($request->ajax()) {
             $data['agd_nombres'] = !empty($request->agd_nombres) ?  $request->agd_nombres : '';
-            $data['carpeta_id'] = !empty($request->carpeta_id) ?  $request->carpeta_id : '';
+            // $data['carpeta_id'] = !empty($request->carpeta_id) ?  $request->carpeta_id : '';
 
             $agentes = AgentesUtils::agentes($data);
             return DataTables::of($agentes)

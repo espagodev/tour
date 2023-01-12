@@ -11,7 +11,7 @@ class movimientoContableUtils{
 
         
     $movimiento = MovimientoContable::create([
-        'moc_numero' => AjustesDocumentosUtils::codigoAbonoCliente(),
+        'moc_numero' => AjustesDocumentosUtils::codigo('5'),
         'billetes_plazos_id' => !empty($billetes_plazos_id) ? $billetes_plazos_id : 0,
         'factura_id' => $factura_id,
         'user_id' => auth()->user()->id,
@@ -23,7 +23,7 @@ class movimientoContableUtils{
 
     ]);
 
-        AjustesDocumentosUtils::actualizarConteo('2');
+        AjustesDocumentosUtils::conteo('5');
         movimientosUtils::guardarMovimiento($request, $factura_id, $totalAbono,  $billetes_plazos_id, $movimiento->id );
 
     }

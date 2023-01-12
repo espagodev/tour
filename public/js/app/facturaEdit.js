@@ -52,7 +52,7 @@ function calculatePercent(percent, amount) {
     return Number(amount) * Number(factor);
 }
 
-
+ 
 
 function inicializarPasajerosSelect2(elem) {
     elem.select2({

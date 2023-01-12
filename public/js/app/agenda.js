@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
 
-    $("#listado_clientes,  #carpeta_id").change(function () {
+    $("#listado_clientes,  #agd_nombres, #pais_id , #agd_telefono, #agd_documento, #agd_apellidos").change(function () {
         listado_clientes.ajax.reload();
     });
 
@@ -16,7 +16,11 @@ $(document).ready(function () {
             url: "/agenda/getListadoClientes",
             dataType: "json",
             data: function (d) {
-                d.carpeta_id = $("select#carpeta_id").val();
+                d.agd_nombres = $("input#agd_nombres").val();
+                d.pais_id = $("select#pais_id").val();
+                d.agd_telefono = $("input#agd_telefono").val();
+                d.agd_documento = $("input#agd_documento").val();
+                d.agd_apellidos = $("input#agd_apellidos").val();
             },
         },
         columns: [
@@ -39,8 +43,8 @@ $(document).ready(function () {
                 searchable: false,
             },
             {
-                data: "car_nombre",
-                name: "car_nombre",
+                data: "pai_nombre",
+                name: "pai_nombre",
                 orderable: false,
                 searchable: false,
             },

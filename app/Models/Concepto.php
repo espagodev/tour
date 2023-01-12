@@ -16,6 +16,7 @@ class Concepto extends Model
         'mayorista_id',
         'sub_categoria_id',
         'impuesto_id',
+        'descripcion_id',
         'con_descripcion',
         'con_cantidad',
         'con_monto',

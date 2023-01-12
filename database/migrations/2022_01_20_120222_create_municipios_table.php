@@ -19,6 +19,7 @@ class CreateMunicipiosTable extends Migration
             $table->string('mun_codigo');
             $table->string('mun_dc');
             $table->string('mun_nombre');
+            $table->enum('estado', ['0','1'])->default('0');
             $table->timestamps();
         });
     }

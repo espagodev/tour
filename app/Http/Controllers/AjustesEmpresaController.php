@@ -61,7 +61,7 @@ class AjustesEmpresaController extends Controller
     public function update(Request $request, $empresa)
     {
 
-       
+        // dd($request);
         // $rules = [
         //     'aje_nombre' => 'required|max:255',
         //     'aje_codigo_turismo' => 'required',
@@ -92,6 +92,10 @@ class AjustesEmpresaController extends Controller
             'aje_provincia' => $request->input('aje_provincia'),
             'aje_municipio' => $request->input('aje_municipio'),
             'aje_telefono' => $request->input('aje_telefono'),
+            'aje_movil' => $request->input('aje_movil'),
+            'aje_web' => $request->input('aje_web'),
+            'aje_email' => $request->input('aje_email')
+
             ]
         );
 

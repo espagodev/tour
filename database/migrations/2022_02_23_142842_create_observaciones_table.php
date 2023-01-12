@@ -17,6 +17,7 @@ class CreateObservacionesTable extends Migration
             $table->id();
             $table->string('obs_titulo');
             $table->longText('obs_observacion');
+            $table->enum('estado', ['0','1'])->default('1');
             $table->timestamps();
         });
     }

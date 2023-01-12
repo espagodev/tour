@@ -17,6 +17,7 @@ class CreateSubCategoriasTable extends Migration
             $table->id();
             $table->foreignId('categoria_id')->references('id')->on('categorias')->onDelete('cascade');
             $table->string('subc_nombre');
+            $table->enum('estado', ['0','1'])->default('1');
             $table->timestamps();
         });
     }

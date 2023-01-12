@@ -16,6 +16,7 @@ class CreateDescripcionesTable extends Migration
         Schema::create('descripciones', function (Blueprint $table) {
             $table->id();
             $table->string('des_nombre');
+            $table->enum('estado', ['0','1'])->default('1');
             $table->timestamps();
         });
     }
