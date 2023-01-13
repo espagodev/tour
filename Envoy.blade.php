@@ -1,4 +1,4 @@
-@servers(['aws' => '-i D:\\espagodev\LightsailDefaultKey-eu-west-3.pem ubuntu@15.237.141.99'])
+@servers(['aws' => '-i D:\\espagodev\dev.pem ubuntu@ec2-3-131-101-33.us-east-2.compute.amazonaws.com','localhost' => 'lapi.test','lot' => '-i D:\\espagodev\LightsailDefaultKey-eu-west-3.pem ubuntu@15.237.141.99'])
 {{-- @servers([ 'aws' => ['ubuntu@3.18.107.107']]) --}}
 {{-- php vendor/bin/envoy run git:clone --on=aws --}}
 {{-- envoy run git:pull --on=aws --}}
@@ -44,6 +44,12 @@
     echo "repositorio clonado correctamente";
 @endtask
 
+@task('tour_mv', ['on' => $on])
+    cd {{ $app_dir1 }}
+    echo "hemos entrado al directorio /var/www";
+     sudo mv tour prueba.lotogam.com
+    echo "carpeta renombrada correctamente";
+@endtask
 
 
 @task('git:pull', ['on' => $on])
@@ -141,7 +147,8 @@
 
 @task('cache', ['on' => $on])
     cd {{ $app_dir }}
-     sudo php artisan config:cache
+     {{-- sudo php artisan optimize --}}
+     sudo php artisan config:clear
     echo "caché limpiada correctamente";
 @endtask
 
